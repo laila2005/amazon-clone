@@ -41,7 +41,7 @@ const HeroSlider = () => {
   }, [currentIndex, images.length]);
 
   return (
-  <div style={{position: 'relative', width: '100vw', height: '100vh', maxWidth: '100vw', maxHeight: '100vh', background: '#fff', overflow: 'hidden', left: 0, top: 0}}>
+  <div style={{position: 'relative', width: '100vw', height: '100vh', maxWidth: '100vw', maxHeight: '100vh', background: '#fff', overflow: 'visible', left: 0, top: 0, zIndex: 2}}>
       {/* Slideshow Images */}
       <div style={{ position: 'absolute', left: 0, top: 0, width: '100vw', height: '100vh', overflow: 'hidden' }}>
         {/* Current image (slides out) */}
@@ -157,7 +157,7 @@ const HeroSlider = () => {
       {/* Cards Overlay (4 cards per row, each with 4 images) */}
       <div style={{
         position: 'absolute',
-        bottom: '0px',
+        bottom: '-120px',
         left: '50%',
         transform: 'translateX(-50%)',
         display: 'grid',
@@ -208,6 +208,7 @@ const HeroSlider = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            height: '100%',
           }}>
             <h3 style={{ fontSize: '1.35rem', fontWeight: 'bold', marginBottom: '14px', color: '#222', letterSpacing: '0.5px', textAlign: 'left', width: '100%' }}>{card.title}</h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', marginBottom: '10px' }}>
@@ -254,7 +255,23 @@ const HeroSlider = () => {
                 );
               })}
             </div>
-            <a href="#" style={{ color: '#007185', textDecoration: 'none', marginTop: '8px', fontSize: '1rem', cursor: 'pointer', alignSelf: 'flex-start' }}>Explore all</a>
+            <a href="#" style={{
+              color: '#007185',
+              textDecoration: 'none',
+              marginTop: 'auto', // push to bottom
+              fontSize: '1rem',
+              cursor: 'pointer',
+              alignSelf: 'flex-start', // align to left
+              paddingBottom: '8px', // space from bottom
+            }}>
+              {(() => {
+                if (card.title === 'Revamp your home in style') return 'Explore all';
+                if (card.title === 'Appliances for your home| Up to 55% off') return 'See more';
+                if (card.title === 'Starting $149 | Headphones') return 'See all offers';
+                if (card.title === 'Starting $99| Amazon Brands & more') return 'Shop now';
+                return 'See more';
+              })()}
+            </a>
           </div>
         ))}
       </div>
