@@ -106,9 +106,9 @@ function Cards() {
         {cardData.map((card, index) => (
           <div key={index} style={{
             ...cardStyle,
-            padding: '18px', // match hero cards
-            width: '302px', // decreased by 1px
-                height: '535px', // increased by another 20px
+            padding: '18px',
+            width: '270px', 
+                height: '552px', 
             boxSizing: 'border-box',
             display: 'flex',
             flexDirection: 'column',

@@ -1,0 +1,10 @@
+.slideshow-scroll::-webkit-scrollbar {
+  height: 12px;
+}
+.slideshow-scroll::-webkit-scrollbar-track {
+  background: rgba(141, 141, 141, 1);
+}
+.slideshow-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
