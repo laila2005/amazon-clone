@@ -249,7 +249,7 @@ const HeroSlider = () => {
                 }
                 return (
                   <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <img src={img} alt={card.title + ' ' + (idx+1)} style={{ width: '110px', height: '110px', objectFit: 'cover', borderRadius: '0' }} />
+                    <img src={img} alt={card.title + ' ' + (idx+1)} style={{ width: '110px', height: '100px', objectFit: 'cover', borderRadius: '0' }} />
                     <span style={{ fontSize: '0.85rem', color: '#555', marginTop: '4px', textAlign: 'center' }}>{subtitle}</span>
                   </div>
                 );

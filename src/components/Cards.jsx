@@ -108,7 +108,7 @@ function Cards() {
             ...cardStyle,
             padding: '18px',
             width: '270px', 
-                height: '552px', 
+            height: '570px', 
             boxSizing: 'border-box',
             display: 'flex',
             flexDirection: 'column',
@@ -118,6 +118,7 @@ function Cards() {
           }}>
             <h2 style={{
               fontSize: '1.35rem',
+              paddingBottom: '16px',
               fontWeight: 'bold',
               marginBottom: '18px',
               color: '#222',
