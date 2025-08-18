@@ -69,22 +69,23 @@ export default function Slideshow() {
       <div style={{
   position: 'relative',
   width: '100%',
-  maxWidth: '1200px',
-  marginLeft: 'auto',
+  maxWidth: '1151px',
+  marginLeft: '65px',
   marginRight: 'auto',
   marginTop: '32px',
   marginBottom: '32px',
-        background: '#fff',
-        borderRadius: '0',
-        boxShadow: 'none',
-        border: 'none',
-        padding: '32px 0',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+  background: '#fff',
+  borderRadius: '0',
+  boxShadow: 'none',
+  border: 'none',
+  padding: '0',
+  overflow: 'hidden',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  alignContent: 'center',
       }}>
-  <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '24px', textAlign: 'left', color: '#000', width: '100%' }}>Best Sellers in Clothing & Accessories</h2>
+  <h2 style={{ fontSize: '2rem', fontWeight: 'bold', margin: '8px 0 24px 0', textAlign: 'left', color: '#000', width: '100%', paddingLeft: '32px' }}>Best Sellers in Clothing & Accessories</h2>
   <div
     ref={scrollRef}
     style={{
@@ -97,8 +98,8 @@ export default function Slideshow() {
       paddingBottom: '12px',
       boxSizing: 'border-box',
       justifyContent: 'center',
-  paddingLeft: '80x',
-  paddingRight: '80px',
+  paddingLeft: 0,
+  paddingRight: 0,
     }}
     className={styles['slideshow-scroll'] + ' ' + scrollbarStyles['slideshow-scroll']}
   >
@@ -111,7 +112,7 @@ export default function Slideshow() {
           width: '162px',
           height: '225px',
           objectFit: 'contain',
-          marginRight: '16px',
+          marginRight: '15px',
           boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
           background: '#fff',
         }}
@@ -130,9 +131,9 @@ export default function Slideshow() {
             background: '#fff',
             border: '2px solid #888',
             padding: '0',
-            borderRadius: '0',
-            boxShadow: 'none',
-            zIndex: 10,
+            borderRadius: '5px',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+            zIndex: 20,
             cursor: 'pointer',
             height: '64px',
             width: '48px',
@@ -140,6 +141,7 @@ export default function Slideshow() {
             alignItems: 'center',
             justifyContent: 'center',
             color: '#44403B',
+            opacity: 0.9,
           }}
         >
           <ChevronLeft size={32} />
@@ -155,9 +157,9 @@ export default function Slideshow() {
             background: '#fff',
             border: '2px solid #888',
             padding: '0',
-            borderRadius: '0',
-            boxShadow: 'none',
-            zIndex: 10,
+            borderRadius: '5px',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+            zIndex: 20,
             cursor: 'pointer',
             height: '64px',
             width: '48px',
@@ -165,6 +167,7 @@ export default function Slideshow() {
             alignItems: 'center',
             justifyContent: 'center',
             color: '#44403B',
+            opacity: 0.9,
           }}
         >
           <ChevronRight size={32} />

@@ -91,8 +91,8 @@ function Cards() {
   return (
   <div style={{
     ...cardSectionStyle,
-  paddingTop: '290px', // decreased gap by another 10px
-    paddingBottom: '80px',
+    paddingTop: '290px',
+  paddingBottom: '0px', // tightest bottom padding
     marginTop: '-100px',
     position: 'relative',
     zIndex: 1
