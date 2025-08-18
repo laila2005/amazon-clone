@@ -12,8 +12,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 10px;
-  width: 100px; /* Shorter width for the scrollbar bar itself */
+  height: 100px;
+  width: 10px; /* Shorter width for the scrollbar bar itself */
   left: 50%;
   transform: translateX(-50%);
   background: transparent;

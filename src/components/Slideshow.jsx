@@ -58,7 +58,7 @@ export default function Slideshow() {
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({
-        left: currentIndex * 178, // 162px width + 16px margin
+        left: currentIndex * 178,
         behavior: 'smooth',
       });
     }
@@ -67,13 +67,11 @@ export default function Slideshow() {
   return (
   <div style={{ background: '#44403B', width: '100%', minHeight: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 0 }}>
       <div style={{
-  position: 'relative',
-  width: '100%',
-  maxWidth: '1151px',
-  marginLeft: '65px',
-  marginRight: 'auto',
-  marginTop: '32px',
-  marginBottom: '32px',
+          position: 'relative',
+          width: '90vw',
+          maxWidth: '90vw',
+          margin: '40px auto 32px auto',
+          transform: 'translateX(8px)',
   background: '#fff',
   borderRadius: '0',
   boxShadow: 'none',
@@ -98,8 +96,8 @@ export default function Slideshow() {
       paddingBottom: '12px',
       boxSizing: 'border-box',
       justifyContent: 'center',
-  paddingLeft: 0,
-  paddingRight: 0,
+      paddingLeft: 0,
+      paddingRight: 0,
     }}
     className={styles['slideshow-scroll'] + ' ' + scrollbarStyles['slideshow-scroll']}
   >
@@ -109,7 +107,7 @@ export default function Slideshow() {
         src={img}
         alt={`Slide ${index}`}
         style={{
-          width: '162px',
+          width: '172px',
           height: '225px',
           objectFit: 'contain',
           marginRight: '15px',

@@ -156,16 +156,16 @@ const HeroSlider = () => {
 
       {/* Cards Overlay (4 cards per row, each with 4 images) */}
       <div style={{
-        position: 'absolute',
-        bottom: '-120px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: '24px',
-        width: '90vw',
-        zIndex: 10,
-        padding: '0 16px',
+  position: 'absolute',
+  bottom: '-120px',
+  left: '50%',
+  transform: 'translateX(-50%)',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(4, 1fr)',
+  gap: '24px',
+  width: '90vw',
+  zIndex: 10,
+  padding: '0 16px 71px 16px',
       }}>
         {[{
           title: 'Revamp your home in style',

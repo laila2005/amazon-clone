@@ -91,9 +91,9 @@ function Cards() {
   return (
   <div style={{
     ...cardSectionStyle,
-    paddingTop: '290px',
-  paddingBottom: '0px', // tightest bottom padding
-    marginTop: '-100px',
+  paddingTop: '120px',
+  paddingBottom: '3px',
+    marginTop: '0px',
     position: 'relative',
     zIndex: 1
   }}>
@@ -107,8 +107,8 @@ function Cards() {
           <div key={index} style={{
             ...cardStyle,
             padding: '18px',
-            width: '270px', 
-            height: '570px', 
+            width: 'calc((90vw - 3 * 24px) / 4)',
+            height: '570px',
             boxSizing: 'border-box',
             display: 'flex',
             flexDirection: 'column',
