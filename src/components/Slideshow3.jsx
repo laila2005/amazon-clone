@@ -71,7 +71,7 @@ export default function Slideshow() {
   borderRadius: '0',
   boxShadow: 'none',
   border: 'none',
-  padding: '0',
+  padding: '10',
   overflow: 'hidden',
   display: 'flex',
   flexDirection: 'column',
