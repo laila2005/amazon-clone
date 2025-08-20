@@ -1,0 +1,80 @@
+/* Mobile Navbar Enhancements */
+
+/* Smaller mobile screens */
+@media screen and (max-width: 480px) {
+  /* Better layout for search box */
+  .navbar-search {
+    margin: 0.2rem 0;
+  }
+  
+  /* Make sure search input has rounded corners on mobile */
+  .search-input {
+    border-radius: 4px 0 0 4px;
+  }
+  
+  /* Better search button */
+  .search-button {
+    border-radius: 0 4px 4px 0;
+  }
+  
+  /* Compact navbar layout */
+  .navbar {
+    justify-content: space-between;
+  }
+  
+  /* Ensure cart is visible */
+  .navbar-cart {
+    flex-shrink: 0;
+    padding: 0.3rem;
+  }
+  
+  /* Mobile menu toggle needs to be more visible */
+  .mobile-menu-toggle {
+    padding: 0.3rem;
+  }
+  
+  /* Ensure mobile menu dropdown is properly positioned */
+  .mobile-menu {
+    top: 50px;
+  }
+}
+
+/* Very small screens */
+@media screen and (max-width: 360px) {
+  /* More space-efficient layout */
+  .navbar {
+    padding: 2px 4px;
+  }
+  
+  /* Smaller search bar */
+  .search-input {
+    height: 26px;
+    padding: 0 0.3rem;
+  }
+  
+  /* Slightly change logo size */
+  .logo-image {
+    height: 18px;
+    min-width: 40px;
+  }
+}
+
+/* Fix for iPhone 5 sized devices */
+@media screen and (max-width: 320px) {
+  .navbar {
+    padding: 2px;
+    min-height: 45px;
+  }
+  
+  .navbar-search {
+    margin: 0.15rem 0;
+  }
+  
+  .categories-navbar {
+    top: 45px;
+  }
+  
+  body {
+    padding-top: 70px !important;
+  }
+}

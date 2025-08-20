@@ -1,0 +1,55 @@
+/* categories-fix.css - Direct fixes for categories navbar styling and display */
+
+/* Direct styling overrides for the categories navigation */
+.categories-nav {
+  display: flex !important;
+  background-color: rgba(35, 47, 62, 1) !important;
+  color: #FFF !important;
+  padding: 6px 10px !important;
+  gap: 12px !important;
+  font-size: 0.85rem !important;
+  font-family: Arial, sans-serif !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+  white-space: nowrap !important;
+  overflow-x: auto !important;
+  z-index: 900 !important;
+}
+
+/* Fix link styles */
+.categories-nav a {
+  color: #FFF !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  padding: 0 0.5rem !important;
+  display: inline-block !important;
+}
+
+/* Fix hover effects */
+.categories-nav a:hover {
+  text-decoration: underline !important;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 900px) {
+  /* Ensure correct position on mobile */
+  .categories-nav {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    z-index: 900 !important;
+    margin-top: 60px !important; /* Ensure it's properly positioned below navbar */
+  }
+  
+  /* Ensure overflow scrolling works */
+  .categories-nav::-webkit-scrollbar {
+    height: 0 !important; /* Hide scrollbar for cleaner look */
+  }
+}
+
+/* Fix for specific iOS issues */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific code */
+  .categories-nav {
+    overflow-x: auto !important;
+  }
+}

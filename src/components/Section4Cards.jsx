@@ -63,55 +63,56 @@ const cardData = [
 ];
 
 const cardSectionStyle = {
-  width: '100vw',
-  background: '#44403B',
-  padding: '4px 0 32px 0',
+  width: '100%',
+  background: '#44403B', /* Exact same background color as Cards.jsx */
+  padding: '20px 0 40px 0', /* Same padding as Cards.jsx */
+  position: 'relative',
+  zIndex: 1,
   margin: 0,
 };
 
 const gridStyle = {
-  width: '90vw',
+  width: '95%',
+  maxWidth: '1200px',
   margin: '0 auto',
   display: 'grid',
-  gridTemplateColumns: 'repeat(4, 1fr)',
-  gap: '12px 25px',
-  paddingLeft: '32px',
-  paddingRight: '32px',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  gap: '20px',
+  paddingLeft: '20px', /* Match padding with Cards.jsx */
+  paddingRight: '20px', /* Match padding with Cards.jsx */
+  boxSizing: 'border-box',
+  alignItems: 'stretch',
 };
 
 const cardStyle = {
   background: '#fff',
-  boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
-  borderRadius: '0',
-  padding: '18px 24px',
+  boxShadow: '0 4px 16px rgba(0,0,0,0.12)', /* Same as Cards.jsx */
+  borderRadius: '6px',
+  padding: '18px', /* Same padding as Cards.jsx */
   display: 'flex',
   flexDirection: 'column',
+  justifyContent: 'flex-start',
   alignItems: 'center',
-  minHeight: '320px',
-  width: 'calc((90vw - 3 * 24px) / 4)',
+  minHeight: '420px',
+  width: '100%',
   boxSizing: 'border-box',
-  transition: 'box-shadow 0.3s',
+  transition: 'transform 0.3s, box-shadow 0.3s', /* Match transition with Cards.jsx */
 };
 
 export default function Section4Cards() {
   return (
-    <div style={cardSectionStyle}>
-      <div style={gridStyle}>
+    <div className="section-cards" style={cardSectionStyle}>
+      <div className="card-grid" style={gridStyle}>
         {cardData.map((card, index) => (
-          <div key={index} style={cardStyle}>
+          <div key={index} className="card-item" style={cardStyle}>
             <h2
               style={{
-                fontSize: '1.35rem',
-                paddingBottom: '16px',
+                fontSize: '1.2rem',
                 fontWeight: 'bold',
-                marginBottom: '18px',
+                marginBottom: '16px',
                 color: '#222',
-                letterSpacing: '0.5px',
                 textAlign: 'left',
                 width: '100%',
-                height: '56px',
-                display: 'flex',
-                alignItems: 'center',
               }}
             >
               {card.title}
@@ -129,11 +130,14 @@ export default function Section4Cards() {
                   }}
                 >
                   <img
+                    className="slider-img"
                     src={card.items[0].image}
                     alt={card.items[0].name}
                     style={{
-                      width: '120px',
-                      height: '120px',
+                      width: '100%',
+                      maxWidth: '120px',
+                      height: 'auto',
+                      maxHeight: '120px',
                       objectFit: 'contain',
                       borderRadius: '16px',
                       marginBottom: '1px',
@@ -164,6 +168,7 @@ export default function Section4Cards() {
                 </div>
 
                 <div
+                  className="item-grid"
                   style={{
                     width: '100%',
                     display: 'flex',
@@ -245,46 +250,45 @@ export default function Section4Cards() {
               </>
             ) : (
               <div
+                className="item-grid"
                 style={{
                   display: 'grid',
                   gridTemplateColumns: 'repeat(2, 1fr)',
-                  columnGap: '14px',
-                  rowGap: '8px',
-                  flexGrow: 1,
+                  gap: '10px', /* Match gap with Cards.jsx */
                   width: '100%',
+                  flexGrow: 1,
+                  boxSizing: 'border-box',
                 }}
               >
                 {card.items.map((item, idx) => (
                   <div
                     key={idx}
                     style={{
-                      textAlign: 'left',
-                      padding: 0,
-                      margin: 0,
                       display: 'flex',
                       flexDirection: 'column',
-                      alignItems: 'flex-start',
+                      alignItems: 'center', /* Match alignItems with Cards.jsx */
+                      padding: '4px', /* Match padding with Cards.jsx */
                     }}
                   >
                     <img
+                      className="slider-img"
                       src={item.image}
                       alt={item.name}
                       style={{
-                        width: '110px',
-                        height: '110px',
+                        width: '100%',
+                        maxWidth: '100px', /* Match maxWidth with Cards.jsx */
+                        height: 'auto',
+                        maxHeight: '100px', /* Match maxHeight with Cards.jsx */
                         objectFit: 'contain',
                         borderRadius: '0',
-                        marginBottom: '1px',
                       }}
                     />
                     <p
                       style={{
-                        fontSize: '0.95rem',
+                        fontSize: '0.9rem', /* Match fontSize with Cards.jsx */
                         color: '#555',
-                        margin: 0,
-                        marginTop: '-4px',
-                        textAlign: 'left',
-                        fontWeight: '500',
+                        marginTop: '6px', /* Match marginTop with Cards.jsx */
+                        textAlign: 'center', /* Match textAlign with Cards.jsx */
                       }}
                     >
                       {index === cardData.length - 1
@@ -302,9 +306,8 @@ export default function Section4Cards() {
                 style={{
                   color: '#007185',
                   textDecoration: 'none',
-                  marginTop: '12px',
-                  fontSize: '1.1rem',
-                  cursor: 'pointer',
+                  marginTop: '12px', /* Match marginTop with Cards.jsx */
+                  fontSize: '0.95rem',
                   alignSelf: 'flex-start',
                 }}
               >

@@ -1,0 +1,600 @@
+/* Responsive styles for all components */
+
+/* Global responsive settings */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Slideshow specific styles */
+.slideshow-items {
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  cursor: grab;
+}
+
+.slideshow-items:active {
+  cursor: grabbing;
+}
+
+.slideshow-items::-webkit-scrollbar {
+  height: 6px;
+}
+
+.slideshow-items::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+/* Consistent card and image styling */
+.slideshow-container {
+  position: relative;
+  width: 95%;
+  max-width: 1200px;
+  margin: 40px auto 32px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  border: none;
+  padding: 18px;
+  overflow: hidden;
+}
+
+.slider-img {
+  border-radius: 0 !important;
+  transition: transform 0.2s;
+}
+
+.slider-img:hover {
+  transform: scale(1.02);
+}
+
+/* Ensure hero card images have no rounded corners */
+.hero-card img {
+  border-radius: 0 !important;
+}
+
+.item-grid img {
+  border-radius: 0 !important;
+}
+
+/* Hero card hover effects */
+.hero-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25) !important;
+}
+
+/* Navigation buttons */
+.slider-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  border: 2px solid #888;
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  z-index: 20;
+  cursor: pointer;
+  height: 64px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #44403B;
+  opacity: 0.9;
+  transition: all 0.2s;
+}
+
+.slider-nav-button:hover {
+  opacity: 1;
+  background: #f7f7f7;
+}
+
+.slider-prev {
+  left: 5px;
+}
+
+.slider-next {
+  right: 5px;
+}
+
+/* Hero slider navigation buttons specific styles */
+.hero-slider .slider-nav-button {
+  border-radius: 0;
+  width: 60px;
+  height: 60px;
+  box-shadow: none;
+  border: none;
+  opacity: 0.8;
+  background: transparent;
+  top: 40% !important; /* Moved up from default 50% to position arrows higher */
+}
+
+.hero-slider .slider-nav-button svg {
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.8));
+}
+
+.hero-slider .slider-nav-button:hover svg {
+  filter: drop-shadow(0 0 3px rgba(255,255,255,1));
+}
+
+.hero-slider .slider-prev {
+  left: 15px;
+}
+
+.hero-slider .slider-next {
+  right: 15px;
+}
+
+/* Navbar fixed positioning styles */
+nav.nav-links {
+  width: 100%;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Adjust padding-top for fixed navbar */
+div[style*="padding-top: 60px"] {
+  padding-top: 60px !important; /* Match with navbar height */
+}
+
+/* Media queries for different screen sizes */
+@media only screen and (max-width: 1200px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  
+  footer div[style*="display: grid"] {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+  }
+  
+  nav > div:nth-child(2) {
+    margin-right: 0.5rem !important;
+  }
+  
+  nav > div:nth-child(4),
+  nav > div:nth-child(5) {
+    margin-right: 0.75rem !important;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+    width: 95% !important;
+  }
+  
+  /* Adjust hero slider height for medium screens */
+  .hero-slider div[style*="height: 60vh"] {
+    height: 50vh !important;
+  }
+  
+  /* Add margin to container to account for overlapping cards */
+  div[style*="position: relative"][style*="height: 100vh"] {
+    margin-bottom: 35vh !important;
+  }
+  
+  /* Hero slider arrow adjustments for medium screens */
+  .hero-slider .slider-nav-button {
+    width: 50px !important;
+    height: 50px !important;
+    top: 38% !important; /* Position arrows higher on medium screens */
+  }
+  
+  .hero-slider .slider-nav-button svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  .hero-slider .slider-prev {
+    left: 10px !important;
+  }
+  
+  .hero-slider .slider-next {
+    right: 10px !important;
+  }
+  
+  .slider-img {
+    width: 20vw !important;
+    min-width: 120px !important;
+  }
+  
+  .nav-links {
+    overflow-x: auto;
+    justify-content: flex-start !important;
+    padding: 5px !important;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .nav-links::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
+  }
+  
+  /* Slideshow improvements */
+  .slideshow-container {
+    width: 95% !important;
+    padding: 12px !important;
+  }
+  
+  .slider-nav-button {
+    height: 50px !important;
+    width: 40px !important;
+  }
+  
+  .slideshow-items img {
+    width: 150px !important;
+    margin-right: 10px !important;
+  }
+  
+  /* Custom layout for Section4Cards */
+  .section-cards div[style*="display: flex"][style*="justify-content: space-between"] {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  .section-cards div[style*="display: flex"][style*="justify-content: space-between"] > div {
+    width: 45% !important;
+    margin-bottom: 10px !important;
+  }
+  
+  footer div[style*="display: grid"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  footer div[style*="display: flex"] {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  
+  nav {
+    padding: 0 8px !important;
+  }
+  
+  nav > div:nth-child(4),
+  nav > div:nth-child(5) {
+    display: none !important;
+  }
+  
+  nav > div:nth-child(2) {
+    font-size: 0.8rem !important;
+    margin-right: 0.5rem !important;
+  }
+  
+  nav > div:first-child img {
+    height: 30px !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* Adjust padding for fixed navbar on small screens */
+  div[style*="padding-top: 60px"] {
+    padding-top: 50px !important; /* Slightly smaller padding for mobile */
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    width: 98% !important;
+  }
+  
+  /* Adjust hero slider height for small screens */
+  .hero-slider div[style*="height: 60vh"] {
+    height: 40vh !important;
+  }
+  
+  /* Ensure hero slider cards overlap properly on small screens */
+  .hero-slider-cards {
+    margin-top: -60px !important; /* Less overlap on small screens */
+  }
+  
+  /* Better card layout for small screens */
+  .hero-card {
+    padding: 16px !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* Adjust gradient overlay for better visibility on small screens */
+  .hero-slider div[style*="background: linear-gradient"] {
+    height: 25% !important;
+  }
+  
+  .card-item {
+    padding: 12px !important;
+  }
+  
+  .item-grid {
+    gap: 10px !important;
+  }
+  
+  /* Better organized hero card items */
+  .hero-card .item-grid {
+    gap: 12px !important;
+    margin-top: 5px !important;
+  }
+  
+  .hero-card .item-grid img {
+    max-width: 85px !important;
+  }
+  
+  .slider-img {
+    width: 30vw !important;
+    min-width: 100px !important;
+  }
+  
+  h2, h3 {
+    font-size: 1rem !important;
+  }
+  
+  /* Improve hero slider titles on mobile */
+  .hero-card h3 {
+    font-size: 1.1rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* Slideshow improvements for mobile */
+  .slideshow-container {
+    padding: 10px !important;
+    margin: 20px auto !important;
+  }
+  
+  .slideshow-container h2 {
+    padding-left: 5px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .slider-nav-button {
+    height: 40px !important;
+    width: 30px !important;
+    opacity: 0.8 !important;
+    border: 1px solid #888 !important;
+  }
+  
+  /* Hero slider arrow adjustments for small screens */
+  .hero-slider .slider-nav-button {
+    width: 40px !important;
+    height: 40px !important;
+    background-color: transparent !important;
+    top: 50% !important;
+  }
+  
+  .hero-slider .slider-prev {
+    left: 5px !important;
+  }
+  
+  .hero-slider .slider-next {
+    right: 5px !important;
+  }
+  
+  .hero-slider .slider-nav-button svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  
+  .slideshow-items img {
+    width: 120px !important;
+    margin-right: 8px !important;
+  }
+  
+  .hero-slider-cards {
+    bottom: -80px !important;
+  }
+  
+  /* Custom layout for Section4Cards on mobile */
+  .section-cards div[style*="display: flex"][style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .section-cards div[style*="display: flex"][style*="justify-content: space-between"] > div {
+    width: 80% !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .section-cards div[style*="display: flex"][style*="flexDirection: column"] img {
+    max-width: 100px !important;
+  }
+  
+  footer div[style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  
+  footer span[style*="margin"] {
+    display: block !important;
+    margin: 8px auto !important;
+  }
+  
+  footer div[style*="padding: 40px 60px"] {
+    padding: 20px 15px !important;
+  }
+  
+  nav {
+    padding: 0 4px !important;
+  }
+  
+  nav > div:nth-child(3) {
+    margin-right: 0.5rem !important;
+    flex: 1 !important;
+  }
+  
+  nav > div:nth-child(2) {
+    display: none !important;
+  }
+  
+  nav > div:first-child img {
+    height: 24px !important;
+    margin-right: 0 !important;
+  }
+  
+  nav > div:last-child {
+    margin-right: 0 !important;
+  }
+  
+  button[style*="search"] {
+    width: 36px !important;
+  }
+  
+  /* Improve card title readability on small screens */
+  .card-item h2, .card-item h3 {
+    height: auto !important;
+    min-height: 40px;
+  }
+}
+
+/* Mobile touch improvements */
+@media (hover: none) and (pointer: coarse) {
+  .slider-nav-button {
+    opacity: 0.8 !important;
+    width: 40px !important;
+    height: 40px !important;
+    top: 35% !important;
+  }
+  
+  /* Hero slider arrows for touch devices */
+  .hero-slider .slider-nav-button {
+    opacity: 0.95 !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: none !important;
+    padding: 10px !important; /* Increased touch target */
+  }
+  
+  .hero-slider .slider-nav-button svg {
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.8)) !important;
+    stroke: #fff !important; /* White arrows for better visibility */
+  }
+  
+  /* Better touch experience for hero cards */
+  .hero-card:active {
+    transform: translateY(-2px) !important;
+    transition: transform 0.1s !important;
+  }
+  
+  .slider-nav-button:active {
+    background-color: #f0f0f0 !important;
+  }
+  
+  .slideshow-items {
+    /* Modern approach for smooth scrolling on touch devices */
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+  }
+}
+
+/* Extra small screens */
+@media only screen and (max-width: 400px) {
+  .card-item {
+    padding: 8px !important;
+  }
+  
+  .hero-slider div[style*="height: 60vh"] {
+    height: 30vh !important;
+  }
+  
+  /* Better organization for very small screens */
+  .hero-card {
+    padding: 12px 10px !important;
+    min-height: unset !important;
+  }
+  
+  /* Adjust images and text for very small screens */
+  .hero-card .item-grid {
+    gap: 6px !important;
+  }
+  
+  .hero-card .item-grid span {
+    font-size: 0.7rem !important;
+  }
+  
+  nav > div:nth-child(6) {
+    display: none !important;
+  }
+  
+  /* Slideshow improvements for very small screens */
+  .slideshow-container {
+    padding: 8px !important;
+    margin: 15px auto !important;
+  }
+  
+  .slider-nav-button {
+    height: 32px !important;
+    width: 24px !important;
+  }
+  
+  /* Hero slider arrow adjustments for extra small screens */
+  .hero-slider .slider-nav-button {
+    width: 40px !important;
+    height: 40px !important;
+    background-color: transparent !important;
+    top: 32% !important; /* Position arrows higher on extra small screens */
+  }
+  
+  .hero-slider .slider-prev {
+    left: 2px !important;
+  }
+  
+  .hero-slider .slider-next {
+    right: 2px !important;
+  }
+  
+  .hero-slider .slider-nav-button svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  .slideshow-items {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+  
+  .slideshow-items img {
+    width: 100px !important;
+    margin-right: 6px !important;
+  }
+  
+  input[style*="flex: 1"] {
+    font-size: 0.85rem !important;
+    padding: 0 8px !important;
+  }
+  
+  .item-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 4px !important;
+  }
+  
+  img[style*="object-fit: contain"] {
+    padding: 2px !important;
+  }
+}

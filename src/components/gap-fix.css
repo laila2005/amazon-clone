@@ -1,0 +1,42 @@
+/* gap-fix.css - Direct fix for vertical gaps on mobile */
+
+/* Target all major elements that might cause gaps */
+.navbar, .categories-nav, .slider, .products {
+  margin-bottom: -1px !important; /* Negative margin to eliminate any gap */
+}
+
+/* Add this to explicitly fix the gap between navbar and categories */
+.navbar {
+  border-bottom: none !important;
+  position: relative;
+  z-index: 1000;
+}
+
+.categories-nav {
+  border-top: none !important;
+  position: relative;
+  margin-top: -1px !important; /* Remove any gap between navbar and categories */
+  z-index: 999;
+}
+
+/* Ensure no gap is created by default browser behavior */
+body {
+  -webkit-text-size-adjust: 100%; /* Prevent font-size adjustment on orientation change */
+  text-size-adjust: 100%; /* Standard property for modern browsers */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Additional iOS Safari specific fix */
+@supports (-webkit-overflow-scrolling: touch) {
+  .navbar, .categories-nav {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Force all containers to have continuous backgrounds */
+.container, .section, .row, .col {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}

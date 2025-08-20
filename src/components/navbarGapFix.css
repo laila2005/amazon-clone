@@ -1,0 +1,44 @@
+/* Direct fix for navbar gap issues */
+
+/* Override any margin or padding that might cause gaps */
+.navbar {
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5) !important; /* Stronger shadow */
+}
+
+.categories-nav {
+  border-top: none !important;
+  position: relative !important; /* Ensure it's not sticky */
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+
+/* Adjust content padding since category nav is no longer fixed */
+.main-content {
+  padding-top: 0 !important; /* No need for extra padding since categories nav is not fixed */
+}
+
+/* Force no white gap between elements */
+.navbar + div, .categories-nav + div {
+  margin-top: 0 !important;
+}
+
+/* Fix for mobile view - aggressive approach */
+@media (max-width: 900px) {
+  /* Ensure no gaps */
+  html * {
+    background-clip: padding-box !important;
+  }
+  
+  /* Main navbar expanded height */
+  .navbar.navbar-search-expanded {
+    min-height: 110px;
+  }
+  
+  /* Force correct top margin */
+  .categories-nav {
+    margin-top: 110px !important; /* Adjust for the taller navbar on mobile */
+  }
+}

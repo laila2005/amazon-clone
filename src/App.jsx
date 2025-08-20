@@ -5,7 +5,9 @@ import AppRoutes from "./routes/AppRoutes";
 export default function App() {
   return (
     <Router>
-      <AppRoutes />
+      <div style={{ margin: 0, padding: 0 }}>
+        <AppRoutes />
+      </div>
     </Router>
   );
 }

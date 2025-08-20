@@ -1,0 +1,51 @@
+/* Mobile-specific fixes */
+
+/* Ensure there's no gap between navbar and categories */
+@media (max-width: 900px) {
+  /* Apply negative margin trick to eliminate any gap */
+  .categories-nav::before {
+    content: "";
+    display: block;
+    height: 2px; /* Small height to overlap any potential gap */
+    width: 100%;
+    background-color: rgba(35, 47, 62, 1);
+    position: absolute;
+    top: -2px;
+    left: 0;
+  }
+  
+  /* Ensure navbar has no bottom gap */
+  .navbar::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: rgba(19, 25, 33, 1);
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+  }
+  
+  /* Force correct margin */
+  .categories-nav {
+    margin-top: 110px !important;
+  }
+  
+  /* Fix mobile scrolling issues */
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+}
+
+/* Extra small screen adjustments */
+@media (max-width: 480px) {
+  .navbar {
+    border-bottom: 2px solid rgba(19, 25, 33, 1) !important;
+  }
+  
+  .categories-nav {
+    border-top: none !important;
+  }
+}

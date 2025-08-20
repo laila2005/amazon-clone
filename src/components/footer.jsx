@@ -1,5 +1,6 @@
 import React from "react";
 import amazonLogo from "../assets/Amazon.png";
+import "./footer-responsive.css";
 
 function Footer() {
   const scrollToTop = () => {
@@ -9,112 +10,86 @@ function Footer() {
   return (
     <>
       {/* HomepageFooter section */}
-      <footer style={{ marginTop: "0px" }}>
+      <footer className="primary-footer">
         {/* Back to Top Button */}
         <div
           onClick={scrollToTop}
-          style={{
-            background: "#37475A",
-            color: "white",
-            textAlign: "center",
-            padding: "15px",
-            cursor: "pointer",
-            fontSize: "0.9rem",
-          }}
+          className="back-to-top"
         >
           Back to Top
         </div>
 
         {/* Top Links Section */}
-        <div
-          style={{
-            background: "#232F3E",
-            color: "white",
-            padding: "40px 60px",
-            fontSize: "0.9rem",
-          }}
-        >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "40px",
-              marginBottom: "40px",
-            }}
-          >
-            <div>
-              <h4 style={{ fontWeight: "bold", marginBottom: "10px" }}>
+        <div className="footer-links-container">
+          <div className="footer-links-grid">
+            <div className="footer-links-column">
+              <h4 className="footer-links-heading">
                 Get to Know Us
               </h4>
-              <p>About Us</p>
-              <p>Careers</p>
-              <p>Press Releases</p>
-              <p>Amazon Science</p>
+              <p className="footer-link">About Us</p>
+              <p className="footer-link">Careers</p>
+              <p className="footer-link">Press Releases</p>
+              <p className="footer-link">Amazon Science</p>
             </div>
 
-            <div>
-              <h4 style={{ fontWeight: "bold", marginBottom: "10px" }}>
+            <div className="footer-links-column">
+              <h4 className="footer-links-heading">
                 Connect with Us
               </h4>
-              <p>Facebook</p>
-              <p>Twitter</p>
-              <p>Instagram</p>
+              <p className="footer-link">Facebook</p>
+              <p className="footer-link">Twitter</p>
+              <p className="footer-link">Instagram</p>
             </div>
 
-            <div>
-              <h4 style={{ fontWeight: "bold", marginBottom: "10px" }}>
+            <div className="footer-links-column">
+              <h4 className="footer-links-heading">
                 Make Money with Us
               </h4>
-              <p>Sell on Amazon</p>
-              <p>Sell under Amazon Accelerator</p>
-              <p>Protect and Build Your Brand</p>
-              <p>Amazon Global Selling</p>
-              <p>Supply to Amazon</p>
-              <p>Become an Affiliate</p>
-              <p>Fulfilment by Amazon</p>
-              <p>Advertise Your Products</p>
-              <p>Amazon Pay on Merchants</p>
+              <p className="footer-link">Sell on Amazon</p>
+              <p className="footer-link">Sell under Amazon Accelerator</p>
+              <p className="footer-link">Protect and Build Your Brand</p>
+              <p className="footer-link">Amazon Global Selling</p>
+              <p className="footer-link">Supply to Amazon</p>
+              <p className="footer-link">Become an Affiliate</p>
+              <p className="footer-link">Fulfilment by Amazon</p>
+              <p className="footer-link">Advertise Your Products</p>
+              <p className="footer-link">Amazon Pay on Merchants</p>
             </div>
 
-            <div>
-              <h4 style={{ fontWeight: "bold", marginBottom: "10px" }}>
+            <div className="footer-links-column">
+              <h4 className="footer-links-heading">
                 Let Us Help You
               </h4>
-              <p>Your Account</p>
-              <p>Returns Center</p>
-              <p>Recalls and Product Safety Alerts</p>
-              <p>100% Purchase Protection</p>
-              <p>Amazon App Download</p>
-              <p>Help</p>
+              <p className="footer-link">Your Account</p>
+              <p className="footer-link">Returns Center</p>
+              <p className="footer-link">Recalls and Product Safety Alerts</p>
+              <p className="footer-link">100% Purchase Protection</p>
+              <p className="footer-link">Amazon App Download</p>
+              <p className="footer-link">Help</p>
             </div>
           </div>
 
           {/* Bottom Section */}
-          <div
-            style={{
-              borderTop: "1px solid #3a4553",
-              paddingTop: "20px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "32px",
-            }}
-          >
+          <div className="footer-bottom-section">
             <img
               src={amazonLogo}
               alt="Amazon"
-              style={{ height: "30px", marginBottom: "0px", marginRight: "32px" }}
+              className="footer-logo"
             />
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <div style={{ display: "flex", alignItems: "center", border: "1px solid #888", borderRadius: "4px", padding: "6px 18px", background: "#232F3E", color: "#fff", fontSize: "1rem", gap: "8px" }}>
-                <span style={{ fontSize: "1.2rem" }}>🌐</span>
+            <div className="footer-selectors">
+              <div className="footer-selector">
+                <span className="icon">🌐</span>
                 <span>English</span>
-                <span style={{ fontSize: "0.8rem", marginLeft: "6px" }}>▼</span>
+                <span style={{ fontSize: "0.8rem", marginLeft: "4px" }}>▼</span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", border: "1px solid #888", borderRadius: "4px", padding: "6px 18px", background: "#232F3E", color: "#fff", fontSize: "1rem", gap: "8px" }}>
-                <img src="https://img.icons8.com/color/48/india.png" alt="India" style={{ width: "24px", height: "24px", marginRight: "8px" }} />
+              <div className="footer-selector">
+                <img 
+                  src="https://img.icons8.com/color/48/india.png" 
+                  alt="India" 
+                  className="flag-icon"
+                />
                 <span>India</span>
-                <span style={{ fontSize: "0.8rem", marginLeft: "6px" }}>▼</span>
+                <span style={{ fontSize: "0.8rem", marginLeft: "4px" }}>▼</span>
               </div>
             </div>
           </div>
@@ -122,46 +97,38 @@ function Footer() {
       </footer>
 
       {/* Footer section (from merged footer.jsx) */}
-      <footer style={{ backgroundColor: 'rgba(19, 26, 34, 1)', color: '#fff', padding: '32px 0 0 0', fontSize: '16px', textAlign: 'center', width: '100%' }}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '0px',
-          maxWidth: '1200px',
-          margin: '0 auto',
-          textAlign: 'left',
-          padding: '0 40px',
-        }}>
-          <div>
-            <div style={{ fontWeight: 'bold', marginBottom: '4px', color: '#fff', fontSize: '14.67px' }}>AbeBooks</div>
-            <div style={{ color: '#b3b3b3', fontSize: '14.67px', marginBottom: '16px' }}>Books, art<br />& collectibles</div>
-            <div style={{ fontWeight: 'bold', marginBottom: '4px', color: '#fff', fontSize: '14.67px' }}>Shop bop</div>
-            <div style={{ color: '#b3b3b3', fontSize: '14.67px' }}>Designer<br />Fashion Brands</div>
+      <footer className="secondary-footer">
+        <div className="footer-services-grid">
+          <div className="footer-service-item">
+            <div className="footer-service-title">AbeBooks</div>
+            <div className="footer-service-description">Books, art<br />& collectibles</div>
+            <div className="footer-service-title">Shop bop</div>
+            <div className="footer-service-description">Designer<br />Fashion Brands</div>
           </div>
-          <div>
-            <div style={{ fontWeight: 'bold', marginBottom: '4px', color: '#fff', fontSize: '14.67px' }}>Amazon web Services</div>
-            <div style={{ color: '#b3b3b3', fontSize: '14.67px', marginBottom: '16px' }}>Scalable Cloud<br />Computing Services</div>
-            <div style={{ fontWeight: 'bold', marginBottom: '4px', color: '#fff', fontSize: '14.67px' }}>Amazon Business</div>
-            <div style={{ color: '#b3b3b3', fontSize: '14.67px' }}>Everything For<br />Your Business</div>
+          <div className="footer-service-item">
+            <div className="footer-service-title">Amazon Web Services</div>
+            <div className="footer-service-description">Scalable Cloud<br />Computing Services</div>
+            <div className="footer-service-title">Amazon Business</div>
+            <div className="footer-service-description">Everything For<br />Your Business</div>
           </div>
-          <div>
-            <div style={{ fontWeight: 'bold', marginBottom: '4px', color: '#fff', fontSize: '14.67px' }}>Audible</div>
-            <div style={{ color: '#b3b3b3', fontSize: '14.67px', marginBottom: '16px' }}>Download<br />Audio Books</div>
-            <div style={{ fontWeight: 'bold', marginBottom: '4px', color: '#fff', fontSize: '14.67px' }}>Prime Now</div>
-            <div style={{ color: '#b3b3b3', fontSize: '14.67px' }}>2-Hour Delivery<br />on Everyday Items</div>
+          <div className="footer-service-item">
+            <div className="footer-service-title">Audible</div>
+            <div className="footer-service-description">Download<br />Audio Books</div>
+            <div className="footer-service-title">Prime Now</div>
+            <div className="footer-service-description">2-Hour Delivery<br />on Everyday Items</div>
           </div>
-          <div>
-            <div style={{ fontWeight: 'bold', marginBottom: '4px', color: '#fff', fontSize: '14.67px' }}>IMDb</div>
-            <div style={{ color: '#b3b3b3', fontSize: '14.67px', marginBottom: '16px' }}>Movies, TV<br />& Celebrities</div>
-            <div style={{ fontWeight: 'bold', marginBottom: '4px', color: '#fff', fontSize: '14.67px' }}>Amazon Prime Music</div>
-            <div style={{ color: '#b3b3b3', fontSize: '14.67px' }}>100 million sings, ad-free<br />Over 15 million podcast episodes</div>
+          <div className="footer-service-item">
+            <div className="footer-service-title">IMDb</div>
+            <div className="footer-service-description">Movies, TV<br />& Celebrities</div>
+            <div className="footer-service-title">Amazon Prime Music</div>
+            <div className="footer-service-description">100 million songs, ad-free<br />Over 15 million podcast episodes</div>
           </div>
         </div>
-        <div style={{ marginTop: '40px', color: '#ccc', fontSize: '12.4px', textAlign: 'center' }}>
-          <span style={{ margin: '0 16px' }}>Conditions of Use & Sale</span>
-          <span style={{ margin: '0 16px' }}>Privacy Notice</span>
-          <span style={{ margin: '0 16px' }}>Interset-Based Ads</span><br />
-          <span style={{ margin: '0 16px' }}>1996-2024, Amazon.com, Inc. or its affiliates</span>
+        <div className="footer-legal">
+          <span className="footer-legal-link">Conditions of Use & Sale</span>
+          <span className="footer-legal-link">Privacy Notice</span>
+          <span className="footer-legal-link">Interest-Based Ads</span>
+          <div className="footer-copyright">© 1996-2024, Amazon.com, Inc. or its affiliates</div>
         </div>
       </footer>
     </>

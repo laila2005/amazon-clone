@@ -1,0 +1,31 @@
+/* Specific styles for the HeroSlider component */
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+/* Make the slideshow responsive */
+@media screen and (max-width: 768px) {
+  .hero-slider-cards {
+    margin-top: -60px !important; /* Less overlap on smaller screens */
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 columns on tablets */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero-slider-cards {
+    grid-template-columns: 1fr !important; /* Single column on mobile */
+    margin-top: -40px !important; /* Even less overlap on mobile */
+  }
+  
+  .hero-card {
+    min-height: 350px !important; /* Shorter cards on mobile */
+  }
+  
+  .hero-slider img[alt="Slide"] {
+    object-position: center 30% !important; /* Better focus on smaller screens */
+  }
+}

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./heroSlider.css"; // Import specific styles for the HeroSlider
 import slideshow1 from "../assets/slideshow1.jpg";
 import slideshow2 from "../assets/slideshow2.jpg";
 import slideshow3 from "../assets/slideshow3.jpg";
@@ -84,76 +83,70 @@ const HeroSlider = () => {
   ];
 
   return (
-    <div className="hero-slider" style={{ 
-      position: "relative", 
-      width: "100%", 
-      height: "auto", 
-      overflow: "hidden", 
-      marginBottom: "0", /* No bottom margin for seamless connection */
-      backgroundColor: "#44403B", /* Added #44403B background color for the area underneath cards */
-    }}>
+    <div style={{ position: "relative", width: "100%", height: "100vh", overflow: "visible", marginBottom: "25vh" }}>
+      {/* Navbar */}
+      <div
+        className="nav-links"
+        style={{
+          width: "100%",
+          background: "rgba(35, 47, 62, 1)",
+          color: "#FFF",
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          padding: "6px 10px",
+          gap: "12px",
+          fontSize: "0.85rem",
+          fontFamily: "Arial, sans-serif",
+          zIndex: 10,
+        }}
+      >
+        {[
+          "All",
+          "Amazon mini TV",
+          "Sell",
+          "Best Sellers",
+          "Today's Deals",
+          "Mobiles",
+          "Customer Service",
+          "Prime",
+          "Electronics",
+          "Fashion",
+          "New Releases",
+          "Home & Kitchen",
+          "Amazon Pay",
+        ].map((item) => (
+          <a
+            key={item}
+            href="#"
+            style={{ color: "#FFF", textDecoration: "none", whiteSpace: "nowrap", padding: "0 0.5rem" }}
+          >
+            {item}
+          </a>
+        ))}
+      </div>
+
       {/* Slideshow */}
       <div
         style={{
-          position: "relative",
-          width: "100%", 
-          height: "50vh", /* Adjusted height */
-          minHeight: "300px", /* Minimum height to ensure visibility */
-          maxHeight: "600px", /* Maximum height to look good on large screens */
+          position: "absolute",
+          inset: 0,
           overflow: "hidden",
-          marginTop: "0px", /* Remove margin since we have padding in HomePage */
         }}
       >
-        {/* Bottom gradient overlay that blends with the dark background */}
+        {/* Gradient overlay for smoother card transition */}
         <div 
           style={{
             position: "absolute",
             bottom: 0,
             left: 0,
             right: 0,
-            height: "35%", /* Increased height for even more gradual transition */
-            background: "linear-gradient(to bottom, rgba(68, 64, 59, 0) 0%, #44403B 95%)", /* Exact #44403B color match */
+            height: "30%",
+            background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 100%)",
             zIndex: 5,
             pointerEvents: "none"
           }}
         ></div>
-        
-        {/* Left Arrow */}
-        <button
-          onClick={() => {
-            setSlideDirection("right");
-            setNextIndex((currentIndex - 1 + images.length) % images.length);
-            setTimeout(() => {
-              setCurrentIndex((currentIndex - 1 + images.length) % images.length);
-              setSlideDirection(null);
-              setNextIndex(null);
-            }, 250);
-          }}
-          className="slider-nav-button slider-prev"
-        >
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 19L8 12L15 5" stroke="#333" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        
-        {/* Right Arrow */}
-        <button
-          onClick={() => {
-            setSlideDirection("left");
-            setNextIndex((currentIndex + 1) % images.length);
-            setTimeout(() => {
-              setCurrentIndex((currentIndex + 1) % images.length);
-              setSlideDirection(null);
-              setNextIndex(null);
-            }, 250);
-          }}
-          className="slider-nav-button slider-next"
-        >
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 5L16 12L9 19" stroke="#333" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        
         <img
           src={images[currentIndex]}
           alt="Slide"
@@ -162,7 +155,6 @@ const HeroSlider = () => {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            objectPosition: "center center",
             transition: "transform 0.25s ease",
             transform:
               nextIndex !== null
@@ -171,7 +163,6 @@ const HeroSlider = () => {
                   : "translateX(100%)"
                 : "translateX(0)",
             zIndex: 2,
-            display: "block", /* Ensure proper display */
           }}
         />
         {nextIndex !== null && (
@@ -183,11 +174,9 @@ const HeroSlider = () => {
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              objectPosition: "center center",
               transition: "transform 0.25s ease",
               transform: "translateX(0)",
               zIndex: 3,
-              display: "block", /* Ensure proper display */
             }}
           />
         )}
@@ -197,17 +186,18 @@ const HeroSlider = () => {
       <div
         className="hero-slider-cards card-grid"
         style={{
-          position: "relative",
-          margin: "-80px auto 30px auto", /* Negative margin to overlap with slider */
+          position: "absolute",
+          bottom: "-50%", /* Make cards overlap by positioning them halfway outside the hero section */
+          left: "50%",
+          transform: "translateX(-50%)",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", /* Changed to auto-fill for better responsiveness */
-          gap: "20px", /* Same horizontal gap as Cards.jsx */
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "20px",
           width: "95%",
           maxWidth: "1200px",
-          zIndex: 10,
-          padding: "20px", /* Even padding all around */
+          zIndex: 20, /* Increased z-index to ensure cards appear above gradient */
+          padding: "20px",
           boxSizing: "border-box",
-          background: "transparent", /* Transparent background to show gradient below */
         }}
       >
         {cards.map((card) => (
@@ -215,37 +205,21 @@ const HeroSlider = () => {
             key={card.title}
             className="hero-card"
             style={{
-              background: "#fff", /* White background for cards */
-              boxShadow: "0 4px 16px rgba(0,0,0,0.12)", 
-              padding: "18px", 
+              background: "#fff",
+              boxShadow: "0 8px 24px rgba(0,0,0,0.18)",
+              padding: "16px",
               display: "flex",
               flexDirection: "column",
-              borderRadius: "8px", /* Slightly more rounded corners */
+              borderRadius: "8px",
               transition: "transform 0.3s, box-shadow 0.3s",
-              minHeight: "420px",
-              height: "100%", /* Fill available height */
-              cursor: "pointer", /* Indicate clickable */
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'translateY(-4px)';
-              e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.15)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.12)';
             }}
           >
             <h3
               style={{
-                fontFamily: "Noto Serif Gujarati, serif",
-                fontWeight: 700,
-                fontSize: "22px",
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                fontStyle: "normal",
-                marginBottom: "16px",
+                fontSize: "1.1rem",
+                fontWeight: "bold",
+                marginBottom: "12px",
                 textAlign: "left",
-                color: "#232F3E", /* Reverted to original dark blue color */
               }}
             >
               {card.title}
@@ -255,7 +229,7 @@ const HeroSlider = () => {
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(2, 1fr)",
-                gap: "10px", /* Match the 10px gap from Cards.jsx item-grid */
+                gap: "8px",
                 marginBottom: "10px",
               }}
             >
@@ -268,31 +242,20 @@ const HeroSlider = () => {
                     alignItems: "center",
                   }}
                 >
-                  <div style={{
-                    width: "100%", 
-                    height: "120px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    overflow: "hidden"
-                  }}>
-                    <img
-                      className="slider-img"
-                      src={img.src}
-                      alt={img.subtitle}
-                      style={{
-                        maxWidth: "100%",
-                        height: "auto",
-                        maxHeight: "100%",
-                        objectFit: "contain",
-                        borderRadius: "0",
-                      }}
-                    />
-                  </div>
+                  <img
+                    className="slider-img"
+                    src={img.src}
+                    alt={img.subtitle}
+                    style={{
+                      width: "100px",
+                      height: "auto",
+                      objectFit: "cover",
+                    }}
+                  />
                   <span
                     style={{
                       fontSize: "0.8rem",
-                      color: "#555", /* Reverted to original color */
+                      color: "#555",
                       marginTop: "4px",
                       textAlign: "center",
                     }}
@@ -305,7 +268,7 @@ const HeroSlider = () => {
             <a
               href="#"
               style={{
-                color: "#007185", /* Reverted to original Amazon blue link color */
+                color: "#007185",
                 textDecoration: "none",
                 marginTop: "auto",
                 fontSize: "0.9rem",

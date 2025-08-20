@@ -1,0 +1,63 @@
+/* Direct fix for the white space above navbar */
+
+/* Remove any potential margins from body and html */
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Target the browser chrome directly */
+@media screen and (max-width: 1024px) {
+  body::before {
+    content: '';
+    display: none;
+  }
+  
+  /* Fix iOS Safari issues */
+  html {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  body {
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Ensure the navbar is properly positioned */
+  nav.nav-links, 
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    margin-top: 0 !important;
+  }
+  
+  /* Ensure root doesn't have unwanted margins */
+  #root {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+
+/* Specifically target Chrome and Safari on mobile */
+@supports (-webkit-touch-callout: none) {
+  body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+  }
+}

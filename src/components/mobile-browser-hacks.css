@@ -1,0 +1,59 @@
+/* mobile-browser-hacks.css - Specific fixes for different mobile browsers */
+
+/* Safari iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific code */
+  body {
+    /* Prevent rubber-band scrolling effect that can cause gaps */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  /* Force GPU acceleration to prevent flickering during scrolling */
+  .navbar, .categories-nav {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+
+/* Chrome on Android fixes */
+@media screen and (max-width: 900px) {
+  /* Chrome on Android specific code */
+  body {
+    touch-action: manipulation; /* Disable double-tap to zoom */
+  }
+  
+  /* Fix Chrome on Android scaling issues */
+  .navbar, .categories-nav {
+    will-change: transform; /* Hint for browser to optimize rendering */
+  }
+}
+
+/* Samsung Internet Browser and other Android browser fixes */
+@media screen and (max-width: 900px) {
+  /* Mobile browser specific fixes */
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  /* Force hardware acceleration for smoother rendering */
+  .navbar, .categories-nav {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Generic mobile fixes */
+html {
+  touch-action: manipulation; /* Improve touch responsiveness */
+}
+
+/* Prevent any subpixel rendering issues */
+.navbar, .categories-nav, .slider, .products {
+  transform: translateZ(0);
+}

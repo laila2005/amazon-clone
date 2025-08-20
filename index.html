@@ -2,12 +2,57 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="https://www.amazon.com/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="https://www.amazon.com/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Amazon</title>
+    <style>
+      /* Reset all default margins and paddings */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html, body, #root {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      
+      /* Ensure navbar sits flush against the top */
+      body {
+        position: relative;
+      }
+      
+      /* Direct fix for the navbar and spacing */
+      .navbar {
+        margin-bottom: 0 !important;
+      }
+      
+      /* Make sure there's no extra space */
+      body, html {
+        overflow-x: hidden;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      
+      /* Aggressive fix for white gap on mobile */
+      @media (max-width: 900px) {
+        .categories-nav {
+          background-color: rgba(35, 47, 62, 1) !important;
+          margin-top: 110px !important;
+        }
+        
+        .navbar {
+          background-color: rgba(19, 25, 33, 1) !important;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <div id="root"></div>
+  <body style="margin: 0; padding: 0; position: relative; overflow-x: hidden;">
+    <div id="root" style="margin: 0; padding: 0; position: relative;"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
