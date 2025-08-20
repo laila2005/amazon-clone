@@ -42,6 +42,37 @@ const HeroSlider = () => {
 
   return (
   <div style={{position: 'relative', width: '100vw', height: '100vh', maxWidth: '100vw', maxHeight: '100vh', background: '#fff', overflow: 'visible', left: 0, top: 0, zIndex: 2}}>
+      {/* Top Navigation Bar (Categories) */}
+      <div
+        style={{
+          position: 'relative',
+          top: 0,
+          width: "100vw",
+          background: "rgba(35, 47, 62, 1)",
+          color: "#FFF",
+          display: "flex",
+          alignItems: "center",
+          padding: "0 12px",
+          minHeight: "40px",
+          fontSize: "0.9rem",
+          fontFamily: "Arial, sans-serif",
+          zIndex: 10,
+        }}
+      >
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>All</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Amazon mini TV</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Sell</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Best Sellers</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Today's Deals</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Mobiles</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Customer Service</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Prime</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Electronics</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Fashion</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>New Releases</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Home & Kitchen</a>
+        <a href="#" style={{ color: "#FFF", textDecoration: "none", marginRight: "16px" }}>Amazon Pay</a>
+      </div>
       {/* Slideshow Images */}
       <div style={{ position: 'absolute', left: 0, top: 0, width: '100vw', height: '100vh', overflow: 'hidden' }}>
         {/* Current image (slides out) */}
@@ -93,37 +124,6 @@ const HeroSlider = () => {
           />
         )}
       </div>
-
-      {/* Slideshow Arrows */}
-      <button
-        onClick={() => {
-          setSlideDirection('left');
-          setTimeout(() => {
-            setCurrentIndex((currentIndex - 1 + images.length) % images.length);
-            setSlideDirection(null);
-          }, 600);
-        }}
-        style={{
-          position: 'absolute',
-          top: '20%',
-          left: '24px',
-          transform: 'translateY(-50%)',
-          zIndex: 20,
-          background: 'none',
-          border: 'none',
-          color: 'black',
-          cursor: 'pointer',
-          outline: 'none',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="28" y1="8" x2="12" y2="20" stroke="black" stroke-width="2" stroke-linecap="round"/>
-          <line x1="12" y1="20" x2="28" y2="32" stroke="black" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
       <button
         onClick={() => {
           setSlideDirection('right');
