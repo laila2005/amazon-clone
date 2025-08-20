@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import styles from './Slideshow.module.css';
 import scrollbarStyles from './SlideshowScrollbar.module.css';
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import slider1 from '../assets/slider1 (1).png';
-import slider2 from '../assets/slider1 (2).png';
-import slider3 from '../assets/slider1 (3).png';
-import slider4 from '../assets/slider1 (4).png';
-import slider5 from '../assets/slider1 (5).png';
-import slider6 from '../assets/slider1 (6).png';
-import slider7 from '../assets/slider1 (7).png';
-import slider8 from '../assets/slider1 (8).png';
+import slider1 from '../assets/slideshow/slider (1).png';
+import slider2 from '../assets/slideshow/slider (2).png';
+import slider3 from '../assets/slideshow/slider (3).png';
+import slider4 from '../assets/slideshow/slider (4).png';
+import slider5 from '../assets/slideshow/slider (5).png';
+import slider6 from '../assets/slideshow/slider (6).png';
 
 const images = [
   slider1,
@@ -18,16 +16,13 @@ const images = [
   slider4,
   slider5,
   slider6,
-  slider7,
-  slider8,
+
   slider1,
   slider2,
   slider3,
   slider4,
   slider5,
   slider6,
-  slider7,
-  slider8
 ];
 
 export default function Slideshow() {
@@ -93,7 +88,16 @@ export default function Slideshow() {
         lineHeight: '100%',
         letterSpacing: '0%',
       }}
-    >Best Sellers in Clothing & Accessories</span>
+    >Min. 50% off | Unique kitchen finds | Amazon Brands & more</span>
+    <span style={{
+      fontFamily: 'Noto Serif Gujarati',
+      fontWeight: 400,
+      fontStyle: 'normal',
+      fontSize: '16px',
+      lineHeight: '100%',
+      letterSpacing: '0%',
+      marginLeft: '16px'
+    }}><a>See all</a></span>
   </h2>
   <div
     ref={scrollRef}
