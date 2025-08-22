@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import amazonLogo from "../assets/Amazon.png";
 import vectorSearch from "../assets/Vector-search.png";
 import cartIcon from "../assets/Vector.png";
 import "./Navbar.css"; 
+import "./NavbarAuth.css";
 import { useCart } from "../context/CartContext";
+import { useUser } from "../context/useUser";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { totalItems } = useCart();
+  const { currentUser, logout, isLoggedIn } = useUser();
+  const navigate = useNavigate();
   
   // Categories for the secondary navbar
   const categories = [
@@ -85,8 +89,35 @@ function Navbar() {
 
         {/* Account */}
         <div className="navbar-account">
-          <div className="account-top">Hello, sign in</div>
-          <div className="account-bottom">Account & Lists ▼</div>
+          <div className="account-top">
+            {isLoggedIn() ? `Hello, ${currentUser.name}` : "Hello, sign in"}
+          </div>
+          <div className="account-bottom" onClick={() => isLoggedIn() ? null : navigate('/login')}>
+            <div className="account-dropdown">
+              Account & Lists ▼
+              <div className="account-dropdown-content">
+                {!isLoggedIn() ? (
+                  <div className="account-buttons">
+                    <Link to="/login" className="sign-in-button">Sign in</Link>
+                    <div className="new-customer">
+                      New customer? <Link to="/signup">Start here</Link>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="account-menu">
+                    <div className="account-menu-header">Your Account</div>
+                    <Link to="/account">Your Account</Link>
+                    <Link to="/orders">Your Orders</Link>
+                    <Link to="/wishlist">Your Wish List</Link>
+                    <button onClick={() => { 
+                      logout();
+                      navigate('/');
+                    }} className="sign-out-button">Sign Out</button>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Orders */}
@@ -139,8 +170,28 @@ function Navbar() {
       {/* Mobile Menu Dropdown */}
       <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-menu-item">
-          <div className="mobile-menu-header">Hello, sign in</div>
-          <div className="mobile-menu-content">Account & Lists</div>
+          <div className="mobile-menu-header">
+            {isLoggedIn() ? `Hello, ${currentUser.name}` : "Hello, sign in"}
+          </div>
+          <div className="mobile-menu-content">
+            {isLoggedIn() ? (
+              <>
+                <div onClick={() => navigate('/account')}>Your Account</div>
+                <div onClick={() => {
+                  logout();
+                  navigate('/');
+                  setMobileMenuOpen(false);
+                }} className="mobile-sign-out">Sign Out</div>
+              </>
+            ) : (
+              <div onClick={() => {
+                navigate('/login');
+                setMobileMenuOpen(false);
+              }}>
+                Sign In / Register
+              </div>
+            )}
+          </div>
         </div>
         <div className="mobile-menu-item">
           <div className="mobile-menu-content">Returns & Orders</div>
