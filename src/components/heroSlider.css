@@ -7,11 +7,67 @@
   overflow: hidden;
 }
 
+/* Navigation Button Styles */
+.slider-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.7); /* Light white background */
+  border: none;
+  width: 50px; /* Slightly wider vertical rectangle */
+  height: 90px; /* Taller vertical rectangle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px; /* Slight rounding of corners */
+}
+
+.slider-nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.85); /* Lighter background on hover */
+}
+
+.slider-nav-button svg {
+  width: 45px; /* Bigger SVG */
+  height: 45px; /* Bigger SVG */
+}
+
+.slider-nav-button svg path {
+  stroke: #000; /* Black arrows */
+  stroke-width: 2; /* Slightly thicker for visibility */
+}
+
+.slider-nav-button:hover svg path {
+  stroke: #000; /* Keep black color on hover */
+  stroke-width: 2.5; /* Slightly thicker on hover for better visibility */
+}
+
+.slider-prev {
+  left: 10px;
+}
+
+.slider-next {
+  right: 10px;
+}
+
 /* Make the slideshow responsive */
 @media screen and (max-width: 768px) {
   .hero-slider-cards {
     margin-top: -60px !important; /* Less overlap on smaller screens */
     grid-template-columns: repeat(2, 1fr) !important; /* 2 columns on tablets */
+  }
+  
+  /* Smaller navigation buttons on tablets */
+  .slider-nav-button {
+    width: 40px;
+    height: 70px;
+  }
+  
+  .slider-nav-button svg {
+    width: 35px;
+    height: 35px;
   }
 }
 
@@ -27,5 +83,16 @@
   
   .hero-slider img[alt="Slide"] {
     object-position: center 30% !important; /* Better focus on smaller screens */
+  }
+  
+  /* Even smaller navigation buttons on mobile */
+  .slider-nav-button {
+    width: 35px;
+    height: 60px;
+  }
+  
+  .slider-nav-button svg {
+    width: 30px;
+    height: 30px;
   }
 }

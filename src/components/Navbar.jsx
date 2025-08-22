@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import amazonLogo from "../assets/Amazon.png";
 import vectorSearch from "../assets/Vector-search.png";
 import cartIcon from "../assets/Vector.png";
 import "./Navbar.css"; 
+import { useCart } from "../context/CartContext";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { totalItems } = useCart();
   
   // Categories for the secondary navbar
   const categories = [
@@ -33,7 +36,9 @@ function Navbar() {
       <nav className="navbar">
         {/* Amazon Logo */}
         <div className="navbar-logo">
-          <img src={amazonLogo} alt="Amazon" className="logo-image" />
+          <Link to="/">
+            <img src={amazonLogo} alt="Amazon" className="logo-image" />
+          </Link>
         </div>
 
         {/* Location */}
@@ -91,10 +96,35 @@ function Navbar() {
         </div>
 
         {/* Cart */}
-        <div className="navbar-cart">
-          <img src={cartIcon} alt="cart" className="cart-icon" />
-          <span className="cart-text">Cart</span>
-        </div>
+        <Link to="/cart" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <div className="navbar-cart">
+            <div className="cart-icon-container" style={{ position: 'relative' }}>
+              <img src={cartIcon} alt="cart" className="cart-icon" />
+              {totalItems > 0 && (
+                <span 
+                  style={{ 
+                    position: 'absolute', 
+                    top: '-10px', 
+                    right: '-10px', 
+                    background: '#f08804', 
+                    color: 'white',
+                    borderRadius: '50%', 
+                    width: '20px', 
+                    height: '20px', 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    alignItems: 'center',
+                    fontSize: '12px',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  {totalItems}
+                </span>
+              )}
+            </div>
+            <span className="cart-text">Cart</span>
+          </div>
+        </Link>
 
         {/* Mobile menu hamburger icon */}
         <button className="mobile-menu-toggle" onClick={toggleMobileMenu}>
@@ -134,13 +164,13 @@ function Navbar() {
       {/* Categories Navigation Bar */}
       <div className="categories-navbar">
         {categories.map((item, index) => (
-          <a
+          <Link
             key={item}
-            href="#"
+            to={item === "All" ? "/products" : `/products?category=${item.toLowerCase().replace(/\s+/g, '-')}`}
             className={`category-item ${index === 0 ? 'category-item-first' : ''}`}
           >
             {item}
-          </a>
+          </Link>
         ))}
       </div>
     </>

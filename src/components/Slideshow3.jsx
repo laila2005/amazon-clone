@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from './Slideshow.module.css';
 import scrollbarStyles from './SlideshowScrollbar.module.css';
-import { ChevronLeft, ChevronRight } from "lucide-react";
+// Custom chevron icons instead of lucide-react
 import { attachTouchHandlers } from './slideshowTouchHandler';
 import slider1 from '../assets/slideshow/slider (1).png';
 import slider2 from '../assets/slideshow/slider (2).png';
@@ -90,7 +90,7 @@ export default function Slideshow() {
   };
   
   return (
-    <div style={{ background: '#44403B', width: '100%', minHeight: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 0 }}>
+    <div style={{ background: '#fff', width: '100%', minHeight: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 0 }}>
       <div className="slideshow-container" style={{
         display: 'flex',
         flexDirection: 'column',
@@ -154,14 +154,20 @@ export default function Slideshow() {
           onClick={prevSlide}
           className="slider-nav-button slider-prev"
         >
-          <ChevronLeft size={32} />
+          {/* Custom ChevronLeft */}
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
         </button>
         {/* Right Arrow */}
         <button
           onClick={nextSlide}
           className="slider-nav-button slider-next"
         >
-          <ChevronRight size={32} />
+          {/* Custom ChevronRight */}
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </button>
       </div>
     </div>

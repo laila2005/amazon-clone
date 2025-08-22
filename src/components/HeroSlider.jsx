@@ -131,8 +131,8 @@ const HeroSlider = () => {
           }}
           className="slider-nav-button slider-prev"
         >
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15 19L8 12L15 5" stroke="#333" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 19L8 12L15 5" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
         
@@ -149,8 +149,8 @@ const HeroSlider = () => {
           }}
           className="slider-nav-button slider-next"
         >
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9 5L16 12L9 19" stroke="#333" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 5L16 12L9 19" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
         
