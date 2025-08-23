@@ -44,9 +44,7 @@ cd amazon-clone
 
 
 
----
-
-Future Improvements
+## Future Improvements
 
 📦 Backend Integration for product management
 
