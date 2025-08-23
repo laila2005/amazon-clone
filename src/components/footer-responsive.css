@@ -1,0 +1,267 @@
+/* Footer responsive styling */
+
+/* Primary Footer */
+.primary-footer {
+  margin-top: 0px;
+  width: 100%;
+}
+
+.back-to-top {
+  background: #37475A;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.back-to-top:hover {
+  background: #455a74;
+}
+
+.footer-links-container {
+  background: #232F3E;
+  color: white;
+  padding: clamp(20px, 4vw, 40px) clamp(20px, 5vw, 60px);
+  font-size: 0.9rem;
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(20px, 4vw, 40px);
+  margin-bottom: clamp(20px, 4vw, 40px);
+}
+
+.footer-links-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-links-heading {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+}
+
+.footer-link {
+  margin-bottom: 8px;
+  cursor: pointer;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #e47911;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .footer-links-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .footer-links-column:nth-child(3),
+  .footer-links-column:nth-child(4) {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links-container {
+    padding: 20px;
+  }
+  
+  .footer-links-grid {
+    gap: 24px;
+  }
+}
+.footer-selectors {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 12px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #888;
+  border-radius: 4px;
+  padding: clamp(4px, 1vw, 6px) clamp(10px, 2vw, 18px);
+  background: #232F3E;
+  color: #fff;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  gap: 4px;
+  min-width: 90px;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.footer-selector:hover {
+  background-color: #37475A;
+  transform: translateY(-1px);
+}
+
+.footer-selector:active {
+  transform: translateY(1px);
+}
+
+.footer-logo {
+  height: clamp(24px, 4vw, 30px);
+  margin-bottom: 0px;
+  margin-right: clamp(16px, 3vw, 32px);
+}
+
+.footer-bottom-section {
+  border-top: 1px solid #3a4553;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 3vw, 32px);
+  flex-wrap: wrap;
+}
+
+/* Footer responsive adjustments */
+@media (max-width: 480px) {
+  .footer-bottom-section {
+    flex-direction: column;
+    padding: 20px 16px;
+  }
+  
+  .footer-logo {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+  
+  .footer-selectors {
+    width: 100%;
+  }
+  
+  .footer-selector {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 481px) and (max-width: 768px) {
+  .footer-bottom-section {
+    padding: 20px 24px;
+  }
+}
+
+/* Ensure text within selectors doesn't wrap uncomfortably */
+.footer-selector span {
+  white-space: nowrap;
+}
+
+/* Proper scaling for icons */
+.footer-selector .icon {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+}
+
+.footer-selector .flag-icon {
+  width: clamp(16px, 3vw, 24px);
+  height: clamp(16px, 3vw, 24px);
+}
+
+/* Fix for very small screens */
+@media (max-width: 350px) {
+  .footer-selectors {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .footer-selector {
+    width: 100%;
+  }
+}
+
+/* Secondary Footer */
+.secondary-footer {
+  background-color: rgba(19, 26, 34, 1);
+  color: #fff;
+  padding: 32px 0 0 0;
+  font-size: 16px;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+.footer-service-item {
+  padding: 0 8px;
+}
+
+.footer-service-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #fff;
+  font-size: clamp(13px, 1vw, 14.67px);
+}
+
+.footer-service-description {
+  color: #b3b3b3;
+  font-size: clamp(13px, 1vw, 14.67px);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.footer-legal {
+  margin-top: 40px;
+  color: #ccc;
+  font-size: clamp(11px, 1vw, 12.4px);
+  text-align: center;
+  padding: 0 16px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-legal-link {
+  margin: 0 clamp(8px, 2vw, 16px);
+  padding: 4px 0;
+  white-space: nowrap;
+}
+
+.footer-copyright {
+  margin-top: 8px;
+  width: 100%;
+  text-align: center;
+  padding: 4px 0;
+}
+
+/* Responsive adjustments for secondary footer */
+@media (max-width: 600px) {
+  .footer-services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+  }
+  
+  .footer-legal {
+    flex-direction: column;
+  }
+  
+  .footer-legal-link {
+    margin: 4px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

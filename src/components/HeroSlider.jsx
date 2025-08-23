@@ -1,35 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import slideshow1 from '../assets/slideshow1.jpg';
-import slideshow2 from '../assets/slideshow2.jpg';
-import slideshow3 from '../assets/slideshow3.jpg';
-import pic1 from '../assets/pic1.png';
-import pic2 from '../assets/pic2.png';
-import pic3 from '../assets/pic3.png';
-import pic4 from '../assets/pic4.png';
-import washingMachine from '../assets/washingMachine.png';
-import Refrigetor from '../assets/Refrigetor.png';
-import microwave from '../assets/microwave.png';
-import airCondiconer from '../assets/air condiconer.png';
-import boat from '../assets/boat.png';
-import boult from '../assets/boult.png';
-import noise from '../assets/noise.png';
-import zebronics from '../assets/zebronics.png';
-import shoes from '../assets/shoes.png';
-import pengoine from '../assets/pengoine.png';
-import organizers from '../assets/organizers.png';
-import jars from '../assets/jars.png';
-
-
+import React, { useState, useEffect } from "react";
+import "./heroSlider.css"; // Import specific styles for the HeroSlider
+import slideshow1 from "../assets/slideshow1.jpg";
+import slideshow2 from "../assets/slideshow2.jpg";
+import slideshow3 from "../assets/slideshow3.jpg";
+import pic1 from "../assets/pic1.png";
+import pic2 from "../assets/pic2.png";
+import pic3 from "../assets/pic3.png";
+import pic4 from "../assets/pic4.png";
+import washingMachine from "../assets/washingMachine.png";
+import Refrigetor from "../assets/Refrigetor.png";
+import microwave from "../assets/microwave.png";
+import airCondiconer from "../assets/air condiconer.png";
+import boat from "../assets/boat.png";
+import boult from "../assets/boult.png";
+import noise from "../assets/noise.png";
+import zebronics from "../assets/zebronics.png";
+import shoes from "../assets/shoes.png";
+import pengoine from "../assets/pengoine.png";
+import organizers from "../assets/organizers.png";
+import jars from "../assets/jars.png";
 
 const HeroSlider = () => {
-  const images = [slideshow1, slideshow2, slideshow3]; // Add more images as needed
+  const images = [slideshow1, slideshow2, slideshow3];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState(null);
   const [nextIndex, setNextIndex] = useState(null);
+
   useEffect(() => {
     const interval = setInterval(() => {
       const newIndex = (currentIndex + 1) % images.length;
-      setSlideDirection('left');
+      setSlideDirection("left");
       setNextIndex(newIndex);
       setTimeout(() => {
         setCurrentIndex(newIndex);
@@ -40,237 +40,279 @@ const HeroSlider = () => {
     return () => clearInterval(interval);
   }, [currentIndex, images.length]);
 
+  const cards = [
+    {
+      title: "Revamp your home in style",
+      images: [
+        { src: pic1, subtitle: "Cushion covers, bedsheets & more" },
+        { src: pic2, subtitle: "Figurines, vases & more" },
+        { src: pic3, subtitle: "Home storage" },
+        { src: pic4, subtitle: "Lighting solutions" },
+      ],
+      link: "Explore all",
+    },
+    {
+      title: "Appliances for your home| Up to 55% off",
+      images: [
+        { src: airCondiconer, subtitle: "Air Conditioners" },
+        { src: Refrigetor, subtitle: "Refrigerators" },
+        { src: microwave, subtitle: "Microwaves" },
+        { src: washingMachine, subtitle: "Washing machines" },
+      ],
+      link: "See more",
+    },
+    {
+      title: "Starting $149 | Headphones",
+      images: [
+        { src: boat, subtitle: "Starting ₹249 | boAt" },
+        { src: boult, subtitle: "Starting ₹349 | Boult" },
+        { src: noise, subtitle: "Starting ₹649 | Noise" },
+        { src: zebronics, subtitle: "Starting ₹149 | Zebronics" },
+      ],
+      link: "See all offers",
+    },
+    {
+      title: "Starting $99| Amazon Brands & more",
+      images: [
+        { src: organizers, subtitle: "Starting ₹299 | Home storage & more" },
+        { src: jars, subtitle: "Up to 60% off | Storage racks" },
+        { src: pengoine, subtitle: "Starting ₹99 | Toys & games" },
+        { src: shoes, subtitle: "Up to 60% off | Jackets, dresses & more" },
+      ],
+      link: "Shop now",
+    },
+  ];
+
   return (
-  <div style={{position: 'relative', width: '100vw', height: '100vh', maxWidth: '100vw', maxHeight: '100vh', background: '#fff', overflow: 'visible', left: 0, top: 0, zIndex: 2}}>
-      {/* Slideshow Images */}
-      <div style={{ position: 'absolute', left: 0, top: 0, width: '100vw', height: '100vh', overflow: 'hidden' }}>
-        {/* Current image (slides out) */}
+    <div className="hero-slider" style={{ 
+      position: "relative", 
+      width: "100%", 
+      height: "auto", 
+      overflow: "hidden", 
+      marginBottom: "0", /* No bottom margin for seamless connection */
+      backgroundColor: "#44403B", /* Added #44403B background color for the area underneath cards */
+    }}>
+      {/* Slideshow */}
+      <div
+        style={{
+          position: "relative",
+          width: "100%", 
+          height: "50vh", /* Adjusted height */
+          minHeight: "300px", /* Minimum height to ensure visibility */
+          maxHeight: "600px", /* Maximum height to look good on large screens */
+          overflow: "hidden",
+          marginTop: "0px", /* Remove margin since we have padding in HomePage */
+        }}
+      >
+        {/* Bottom gradient overlay that blends with the dark background */}
+        <div 
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "35%", /* Increased height for even more gradual transition */
+            background: "linear-gradient(to bottom, rgba(68, 64, 59, 0) 0%, #44403B 95%)", /* Exact #44403B color match */
+            zIndex: 5,
+            pointerEvents: "none"
+          }}
+        ></div>
+        
+        {/* Left Arrow */}
+        <button
+          onClick={() => {
+            setSlideDirection("right");
+            setNextIndex((currentIndex - 1 + images.length) % images.length);
+            setTimeout(() => {
+              setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+              setSlideDirection(null);
+              setNextIndex(null);
+            }, 250);
+          }}
+          className="slider-nav-button slider-prev"
+        >
+          <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 19L8 12L15 5" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        
+        {/* Right Arrow */}
+        <button
+          onClick={() => {
+            setSlideDirection("left");
+            setNextIndex((currentIndex + 1) % images.length);
+            setTimeout(() => {
+              setCurrentIndex((currentIndex + 1) % images.length);
+              setSlideDirection(null);
+              setNextIndex(null);
+            }, 250);
+          }}
+          className="slider-nav-button slider-next"
+        >
+          <svg width="45" height="45" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 5L16 12L9 19" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        
         <img
           src={images[currentIndex]}
           alt="Slide"
           style={{
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            width: '100vw',
-            height: '100vh',
-            objectFit: 'cover',
-            display: 'block',
-            margin: 0,
-            padding: 0,
-            transition: 'transform 0.25s cubic-bezier(0.4, 0.2, 0.2, 1)',
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center center",
+            transition: "transform 0.25s ease",
             transform:
               nextIndex !== null
-                ? (slideDirection === 'right'
-                    ? 'translateX(-100vw)'
-                    : 'translateX(100vw)')
-                : 'translateX(0)',
+                ? slideDirection === "right"
+                  ? "translateX(-100%)"
+                  : "translateX(100%)"
+                : "translateX(0)",
             zIndex: 2,
+            display: "block", /* Ensure proper display */
           }}
         />
-        {/* Next image (slides in from opposite side) */}
         {nextIndex !== null && (
           <img
             src={images[nextIndex]}
             alt="Slide"
             style={{
-              position: 'absolute',
-              left: 0,
-              top: 0,
-              width: '100vw',
-              height: '100vh',
-              objectFit: 'cover',
-              display: 'block',
-              margin: 0,
-              padding: 0,
-              transition: 'transform 0.25s cubic-bezier(0.4, 0.2, 0.2, 1)',
-              transform:
-                slideDirection === 'right'
-                  ? 'translateX(0)'
-                  : 'translateX(0)',
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center center",
+              transition: "transform 0.25s ease",
+              transform: "translateX(0)",
               zIndex: 3,
+              display: "block", /* Ensure proper display */
             }}
           />
         )}
       </div>
 
-      {/* Slideshow Arrows */}
-      <button
-        onClick={() => {
-          setSlideDirection('left');
-          setTimeout(() => {
-            setCurrentIndex((currentIndex - 1 + images.length) % images.length);
-            setSlideDirection(null);
-          }, 600);
-        }}
+      {/* Cards */}
+      <div
+        className="hero-slider-cards card-grid"
         style={{
-          position: 'absolute',
-          top: '20%',
-          left: '24px',
-          transform: 'translateY(-50%)',
-          zIndex: 20,
-          background: 'none',
-          border: 'none',
-          color: 'black',
-          cursor: 'pointer',
-          outline: 'none',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          position: "relative",
+          margin: "-80px auto 30px auto", /* Negative margin to overlap with slider */
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", /* Changed to auto-fill for better responsiveness */
+          gap: "20px", /* Same horizontal gap as Cards.jsx */
+          width: "95%",
+          maxWidth: "1200px",
+          zIndex: 10,
+          padding: "20px", /* Even padding all around */
+          boxSizing: "border-box",
+          background: "transparent", /* Transparent background to show gradient below */
         }}
       >
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="28" y1="8" x2="12" y2="20" stroke="black" stroke-width="2" stroke-linecap="round"/>
-          <line x1="12" y1="20" x2="28" y2="32" stroke="black" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <button
-        onClick={() => {
-          setSlideDirection('right');
-          setTimeout(() => {
-            setCurrentIndex((currentIndex + 1) % images.length);
-            setSlideDirection(null);
-          }, 600);
-        }}
-        style={{
-          position: 'absolute',
-          top: '20%',
-          right: '24px',
-          transform: 'translateY(-50%)',
-          zIndex: 20,
-          background: 'none',
-          border: 'none',
-          color: 'black',
-          cursor: 'pointer',
-          outline: 'none',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="12" y1="8" x2="28" y2="20" stroke="black" stroke-width="2" stroke-linecap="round"/>
-          <line x1="28" y1="20" x2="12" y2="32" stroke="black" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-
-      {/* Cards Overlay (4 cards per row, each with 4 images) */}
-      <div style={{
-        position: 'absolute',
-        bottom: '-120px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: '24px',
-        width: '90vw',
-        zIndex: 10,
-        padding: '0 16px',
-      }}>
-        {[{
-          title: 'Revamp your home in style',
-          images: [
-            pic1,
-            pic2,
-            pic3,
-            pic4,
-          ],
-        }, {
-          title: 'Appliances for your home| Up to 55% off',
-          images: [
-           airCondiconer,
-           Refrigetor,
-           microwave,
-           washingMachine,
-          ],
-        }, {
-          title: 'Starting $149 | Headphones',
-          images: [
-           boat,
-           boult,
-           noise,
-           zebronics,
-          ],
-        }, {
-          title: 'Starting $99| Amazon Brands & more',
-          images: [
-            organizers,
-            jars,
-            pengoine,
-            shoes,
-          ],
-        }].map(card => (
-          <div key={card.title} style={{
-            background: '#fff',
-            boxShadow: '0 4px 16px rgba(0,0,0,0.12)',
-            borderRadius: '0',
-            padding: '18px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            height: '100%',
-          }}>
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 'bold', marginBottom: '14px', color: '#222', letterSpacing: '0.5px', textAlign: 'left', width: '100%' }}>{card.title}</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px', marginBottom: '10px' }}>
-              {card.images.map((img, idx) => {
-                let subtitle = `Photo ${idx + 1}`;
-                if (card.title === 'Revamp your home in style' && idx === 0) {
-                  subtitle = 'Cushion covers, bedsheets & more';
-                } else if (card.title === 'Revamp your home in style' && idx === 1) {
-                  subtitle = 'Figurines, vases & more';
-                } else if (card.title === 'Revamp your home in style' && idx === 2) {
-                  subtitle = 'Home storage';
-                } else if (card.title === 'Revamp your home in style' && idx === 3) {
-                  subtitle = 'Lighting solutions';
-                } else if (card.title === 'Appliances for your home| Up to 55% off' && idx === 0) {
-                  subtitle = 'Air Conditioners';
-                } else if (card.title === 'Appliances for your home| Up to 55% off' && idx === 1) {
-                  subtitle = 'Refrigerators';
-                } else if (card.title === 'Appliances for your home| Up to 55% off' && idx === 2) {
-                  subtitle = 'Microwabes';
-                } else if (card.title === 'Appliances for your home| Up to 55% off' && idx === 3) {
-                  subtitle = 'Washing machines';
-                } else if (card.title === 'Starting $149 | Headphones' && idx === 0) {
-                  subtitle = 'Starting ₹249| boAt';
-                } else if (card.title === 'Starting $149 | Headphones' && idx === 1) {
-                  subtitle = 'Starting ₹349| boult';
-                } else if (card.title === 'Starting $149 | Headphones' && idx === 2) {
-                  subtitle = 'Starting ₹649| Noise';
-                } else if (card.title === 'Starting $149 | Headphones' && idx === 3) {
-                  subtitle = 'Starting ₹149| Zebronics';
-                } else if (card.title === 'Starting $99| Amazon Brands & more' && idx === 0) {
-                  subtitle = 'Staring ₹299|Home storage &...';
-                } else if (card.title === 'Starting $99| Amazon Brands & more' && idx === 1) {
-                  subtitle = 'Up to 60% off |Storage &racks';
-                } else if (card.title === 'Starting $99| Amazon Brands & more' && idx === 2) {
-                  subtitle = 'Staring ₹99|Toys & games';
-                } else if (card.title === 'Starting $99| Amazon Brands & more' && idx === 3) {
-                  subtitle = 'Up to 60% off| Jackets,dresses &...';
-                }
-                return (
-                  <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <img src={img} alt={card.title + ' ' + (idx+1)} style={{ width: '110px', height: '110px', objectFit: 'cover', borderRadius: '0' }} />
-                    <span style={{ fontSize: '0.85rem', color: '#555', marginTop: '4px', textAlign: 'center' }}>{subtitle}</span>
+        {cards.map((card) => (
+          <div
+            key={card.title}
+            className="hero-card"
+            style={{
+              background: "#fff", /* White background for cards */
+              boxShadow: "0 4px 16px rgba(0,0,0,0.12)", 
+              padding: "18px", 
+              display: "flex",
+              flexDirection: "column",
+              borderRadius: "8px", /* Slightly more rounded corners */
+              transition: "transform 0.3s, box-shadow 0.3s",
+              minHeight: "420px",
+              height: "100%", /* Fill available height */
+              cursor: "pointer", /* Indicate clickable */
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.15)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.12)';
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "Noto Serif Gujarati, serif",
+                fontWeight: 700,
+                fontSize: "22px",
+                lineHeight: "100%",
+                letterSpacing: "0%",
+                fontStyle: "normal",
+                marginBottom: "16px",
+                textAlign: "left",
+                color: "#232F3E", /* Reverted to original dark blue color */
+              }}
+            >
+              {card.title}
+            </h3>
+            <div
+              className="item-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                gap: "10px", /* Match the 10px gap from Cards.jsx item-grid */
+                marginBottom: "10px",
+              }}
+            >
+              {card.images.map((img, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <div style={{
+                    width: "100%", 
+                    height: "120px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    overflow: "hidden"
+                  }}>
+                    <img
+                      className="slider-img"
+                      src={img.src}
+                      alt={img.subtitle}
+                      style={{
+                        maxWidth: "100%",
+                        height: "auto",
+                        maxHeight: "100%",
+                        objectFit: "contain",
+                        borderRadius: "0",
+                      }}
+                    />
                   </div>
-                );
-              })}
+                  <span
+                    style={{
+                      fontSize: "0.8rem",
+                      color: "#555", /* Reverted to original color */
+                      marginTop: "4px",
+                      textAlign: "center",
+                    }}
+                  >
+                    {img.subtitle}
+                  </span>
+                </div>
+              ))}
             </div>
-            <a href="#" style={{
-              color: '#007185',
-              textDecoration: 'none',
-              marginTop: 'auto', // push to bottom
-              fontSize: '1rem',
-              cursor: 'pointer',
-              alignSelf: 'flex-start', // align to left
-              paddingBottom: '8px', // space from bottom
-            }}>
-              {(() => {
-                if (card.title === 'Revamp your home in style') return 'Explore all';
-                if (card.title === 'Appliances for your home| Up to 55% off') return 'See more';
-                if (card.title === 'Starting $149 | Headphones') return 'See all offers';
-                if (card.title === 'Starting $99| Amazon Brands & more') return 'Shop now';
-                return 'See more';
-              })()}
+            <a
+              href="#"
+              style={{
+                color: "#007185", /* Reverted to original Amazon blue link color */
+                textDecoration: "none",
+                marginTop: "auto",
+                fontSize: "0.9rem",
+                alignSelf: "flex-start",
+              }}
+            >
+              {card.link}
             </a>
           </div>
         ))}

@@ -1,0 +1,29 @@
+ .slideshow-scroll::-webkit-scrollbar {
+  height: 5px; /* Thicker scrollbar */
+}
+
+/* Overlay to visually crop the scrollbar */
+.slideshow-scroll {
+  position: relative;
+}
+ .slideshow-scroll::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  width: 10px; /* Shorter width for the scrollbar bar itself */
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  pointer-events: none;
+  z-index: 2;
+}
+.slideshow-scroll::-webkit-scrollbar-track {
+  background: #fff;
+}
+.slideshow-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}

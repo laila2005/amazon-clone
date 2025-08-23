@@ -1,0 +1,245 @@
+/* Auth Pages Styling (Login and Signup) */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  max-width: 350px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #000;
+  text-align: left;
+}
+
+.auth-logo {
+  margin-bottom: 20px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.auth-logo img {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.auth-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.auth-card h1 {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: #000;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.form-group input {
+  width: 100%;
+  height: 31px;
+  padding: 3px 7px;
+  border: 1px solid #a6a6a6;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 0 rgba(255,255,255,.5), 0 1px 0 rgba(0,0,0,.07) inset;
+  outline: 0;
+  color: #000;
+  background-color: #fff;
+}
+
+.form-group input:focus {
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
+}
+
+.password-info {
+  font-size: 12px;
+  margin-top: 5px;
+  color: #555;
+}
+
+.auth-error {
+  color: #c40000;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.auth-button {
+  display: block;
+  width: 100%;
+  height: 31px;
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid #a88734;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 20px;
+  color: #000;
+  font-weight: normal;
+  text-align: center;
+}
+
+.auth-button:hover {
+  background: linear-gradient(to bottom, #f5d78e, #eeb933);
+}
+
+.secondary-button {
+  display: block;
+  width: 100%;
+  height: 31px;
+  background: linear-gradient(to bottom, #f7f8fa, #e7e9ec);
+  border: 1px solid #adb1b8;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: left;
+  text-indent: 10px;
+  line-height: 31px;
+  text-decoration: none;
+  color: #111;
+  font-size: 13px;
+}
+
+.secondary-button:hover {
+  background: linear-gradient(to bottom, #e7eaf0, #d9dce1);
+}
+
+.auth-agreement {
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 20px 0;
+  color: #555;
+  text-align: left;
+}
+
+.auth-agreement a {
+  color: #0066c0;
+  text-decoration: none;
+}
+
+.auth-agreement a:hover {
+  text-decoration: underline;
+  color: #c45500;
+}
+
+.auth-help {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.auth-help summary {
+  color: #0066c0;
+  cursor: pointer;
+  outline: none;
+}
+
+.auth-help summary:hover {
+  text-decoration: underline;
+  color: #c45500;
+}
+
+.auth-help a {
+  display: block;
+  color: #0066c0;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.auth-help a:hover {
+  text-decoration: underline;
+  color: #c45500;
+}
+
+.auth-divider {
+  position: relative;
+  text-align: left;
+  margin: 20px 0;
+  width: 100%;
+  height: 1px;
+  background-color: #e7e7e7;
+}
+
+.auth-divider span {
+  position: relative;
+  top: -0.7em;
+  padding: 0 8px 0 0;
+  background-color: white;
+  font-size: 12px;
+  color: #000;
+  text-align: left;
+  margin-left: 0;
+}
+
+.auth-login-link {
+  margin-top: 15px;
+  font-size: 13px;
+  text-align: left;
+  color: #000;
+}
+
+.auth-login-link a {
+  color: #0066c0;
+  text-decoration: none;
+}
+
+.auth-login-link a:hover {
+  text-decoration: underline;
+  color: #c45500;
+}
+
+.auth-footer {
+  margin-top: 30px;
+  width: 100%;
+  text-align: left;
+}
+
+.auth-footer-links {
+  font-size: 12px;
+  margin-bottom: 10px;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.auth-footer-links a {
+  color: #0066c0;
+  text-decoration: none;
+  margin: 0;
+}
+
+.auth-footer-links a:hover {
+  text-decoration: underline;
+  color: #c45500;
+}
+
+.auth-footer-copyright {
+  font-size: 11px;
+  color: #000;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .auth-container {
+    padding: 10px;
+  }
+}
