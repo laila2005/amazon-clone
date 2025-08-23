@@ -41,7 +41,28 @@ cd amazon-clone
 
 `npm run dev`
 
-
+project structure:
+amazon-clone/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── assets/          # Images and static assets
+│   ├── components/      # Reusable UI components (e.g., Header, Footer, ProductCard, CartItem)
+│   ├── context/         # React Context providers (e.g., CartContext, UserContext)
+│   ├── pages/           # Page components (e.g., HomePage, ProductsPage, CartPage, CheckoutPage, LoginPage, SignupPage)
+│   ├── routes/          # Routing configuration (e.g., AppRoutes.jsx)
+│   ├── styles/          # CSS and styling files (e.g., Tailwind, custom styles)
+│   ├── App.jsx          # Main App component
+│   ├── main.jsx         # Entry point for React
+│   ├── index.css        # Global CSS and resets
+│   └── App.css          # App-specific styles
+├── .gitignore
+├── index.html           # HTML entry point
+├── package.json         # Project dependencies and scripts
+├── README.md            # Project documentation
+├── README_ALT.md        # Alternative documentation
+├── vite.config.js       # Vite configuration
+└── postcss.config.js    # PostCSS configuration
 
 
 ## Future Improvements
