@@ -11,7 +11,7 @@ import secureTrans from "../assets/images/secure.png";
 import locationIcon from "../assets/images/location icon.png";
 import { useCart } from "../context/CartContext";
 import CartNotification from "../components/CartNotification";
-import "./ProductDetailPage.custom.css";
+import "../styles/ProductDetailPage.custom.css";
 
 const today = new Date();
 const startDate = new Date();
