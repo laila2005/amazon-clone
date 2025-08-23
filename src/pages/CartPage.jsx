@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { useCart } from "../context/CartContext";
-import "../styles/CartPage.custom.css";
+import "./CartPage.custom.css";
 
 // Simplified icon components
 const ShoppingCart = (props) => (
