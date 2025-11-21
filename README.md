@@ -116,13 +116,12 @@ npm run lint         # Run ESLint
 
 ## 👥 Team Roles
 
-Perfect for teams of 4-5 people:
+Perfect for teams of 4 people:
 
 1. **UI/Styling Specialist** - CSS, TailwindCSS, responsive design
 2. **Components Developer** - Building reusable components
 3. **Pages Developer** - Creating full page layouts
-4. **State & Logic Developer** - State management, API calls
-5. **Integration & Testing** - Testing, bug fixes, deployment
+4. **State, Logic & Integration** - State management, API calls, testing, deployment
 
 See [Team Collaboration Guide](./docs/05-TEAM-COLLABORATION.md) for details.
 

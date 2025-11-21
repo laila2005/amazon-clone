@@ -269,13 +269,9 @@ src/
 **Focus**: Building full pages
 **Files**: `src/pages/`, `src/routes/`
 
-### 4. State & Logic Developer
-**Focus**: State management, API calls
-**Files**: `src/context/`, `src/api/`, `src/redux/`
-
-### 5. Integration & Testing
-**Focus**: Testing, bug fixes, deployment
-**Files**: All files (testing)
+### 4. State, Logic & Integration
+**Focus**: State management, API calls, testing, deployment
+**Files**: `src/context/`, `src/api/`, `src/redux/`, all files (testing)
 
 ---
 

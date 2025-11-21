@@ -1,6 +1,6 @@
 # 👥 Team Collaboration Guide
 
-## Team Structure (4-5 People)
+## Team Structure (4 People)
 
 ### 🎨 Person 1: UI/Styling Specialist
 
@@ -137,9 +137,9 @@ src/pages/
 
 ---
 
-### ⚙️ Person 4: State & Logic Developer
+### ⚙️ Person 4: State, Logic & Integration
 
-**Role**: Manage application state and logic
+**Role**: Manage application state, logic, and ensure everything works together
 
 **Skills Needed**:
 - JavaScript
@@ -147,6 +147,9 @@ src/pages/
 - Context API
 - API calls
 - State management
+- Git
+- Debugging
+- Testing
 
 **Responsibilities**:
 - Implement cart functionality
@@ -154,6 +157,10 @@ src/pages/
 - Fetch data from APIs
 - Manage global state
 - Handle form validation
+- Test all features
+- Fix integration bugs
+- Merge branches
+- Code review
 
 **Files to Work On**:
 ```
@@ -174,55 +181,25 @@ src/
     └── helpers.js               # Helper functions
 ```
 
-**Weekly Tasks Example**:
-- [ ] Week 1: Implement cart add/remove logic
-- [ ] Week 2: Build user authentication
-- [ ] Week 3: Create product filtering logic
-- [ ] Week 4: Implement search functionality
-- [ ] Week 5: Add form validation
-
-**Logic Checklist**:
-- [ ] Functions are pure (no side effects)
-- [ ] Error handling implemented
-- [ ] Edge cases covered
-- [ ] State updates correctly
-- [ ] localStorage working
-
----
-
-### 🔧 Person 5: Integration & Testing
-
-**Role**: Connect everything and ensure quality
-
-**Skills Needed**:
-- General understanding of all parts
-- Git
-- Debugging
-- Testing
-- Documentation
-
-**Responsibilities**:
-- Test all features
-- Fix integration bugs
-- Merge branches
-- Write documentation
-- Deploy application
-- Code review
-
-**Files to Work On**:
+**Also responsible for**:
 - All files (testing and reviewing)
 - `README.md`
 - Documentation files
 - Bug fixes across codebase
 
 **Weekly Tasks Example**:
-- [ ] Week 1: Set up Git workflow
-- [ ] Week 2: Test homepage and products page
-- [ ] Week 3: Test cart functionality
-- [ ] Week 4: Test authentication
-- [ ] Week 5: Final testing and deployment
+- [ ] Week 1: Implement cart add/remove logic + Set up Git workflow
+- [ ] Week 2: Build user authentication + Test homepage
+- [ ] Week 3: Create product filtering logic + Test cart
+- [ ] Week 4: Implement search functionality + Test authentication
+- [ ] Week 5: Add form validation + Final testing and deployment
 
-**Testing Checklist**:
+**Checklist**:
+- [ ] Functions are pure (no side effects)
+- [ ] Error handling implemented
+- [ ] Edge cases covered
+- [ ] State updates correctly
+- [ ] localStorage working
 - [ ] All pages load correctly
 - [ ] Navigation works
 - [ ] Cart add/remove works
