@@ -372,10 +372,9 @@ Learning should be enjoyable. Don't stress, you've got this! 🎉
 ## 📞 Getting Help
 
 ### Within Team
-1. Ask in team chat (Slack/Discord)
-2. Create GitHub issue
-3. Ask during standup
-4. Pair programming session
+1. Ask in team chat (whatsapp group)
+3. Ask during meeetings
+4. Pair programming
 
 ### External Resources
 1. Stack Overflow
@@ -426,4 +425,4 @@ Happy coding! 🚀
 
 **Last Updated**: November 2025
 **Version**: 1.0
-**Maintained by**: Your Team
+**Maintained by**: Laila Mohamed
